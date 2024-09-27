@@ -1,0 +1,20 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+$body-bg: #3E5F8A;
+
+
+body {
+  background-color: $body-bg;
+}
+
+.navbar{
+ background-color: $white;
+}
+
+.nav-item{
+  color: $black;
+}
+
+.nav-link{
+  color: $black;
+}

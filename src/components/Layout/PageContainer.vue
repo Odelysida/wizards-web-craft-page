@@ -25,8 +25,4 @@ export default {
 </script>
 
 <style scoped>
-.main-background {
-  background-color: #f1f2f7;
-}
-
 </style>

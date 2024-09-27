@@ -7,7 +7,7 @@ const currentRoute = useRoute();
 </script>
 
 <template>
-  <nav class="bottom-navbar">
+  <nav class="navbar">
     <div class="container">
       <ul class="nav">
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'home')}">
