@@ -15,6 +15,9 @@ const currentRoute = useRoute();
             <span>Startseite</span>
           </RouterLink>
         </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <style scoped>
