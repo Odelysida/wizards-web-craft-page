@@ -3,20 +3,28 @@
 </script>
 
 <template>
-  <div class="container-xxl">
-    <div class="row">
-      <div class="col-12 mt-5">
-        <div class="card">
-          <div class="card-header">
-            <h1 class="card-title">Startseite</h1>
-          </div>
-          <div class="card-body">
-              <div class="image">
-                <img src="https://picsum.photos/300/300" class="card-img"/>
-              </div>
-          </div>
+  <div class="container-fluid w-100 full-size">
+    <div class="row p-0 m-0">
+      <div class="col-12 p-0 m-0">
+        <div class="img-container">
+          <img src="https://picsum.photos/1920/600" class="card-img"/>
+          <div class="centered"><h1 class="text-white fs-4 fw-bold">Baller Los Brettspiele</h1></div>
         </div>
-
+      </div>
+    </div>
+    <div class="row p-0 m-0">
+      <div class="col-12 p-0 m-0">
+        <img src="https://picsum.photos/1920/600" class="card-img"/>
+      </div>
+    </div>
+    <div class="row p-0 m-0">
+      <div class="col-12 p-0 m-0">
+        <img src="https://picsum.photos/1920/600" class="card-img"/>
+      </div>
+    </div>
+    <div class="row p-0 m-0">
+      <div class="col-12 p-0 m-0">
+        <img src="https://picsum.photos/1920/600" class="card-img"/>
       </div>
     </div>
   </div>

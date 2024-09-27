@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column h-100">
     <router-view name="layoutNavbar" />
-    <div class="content container-fluid flex-grow-1 main-background">
+    <div class="content container-fluid flex-grow-1 main-background w-100">
       <div class="h-100 d-flex" :style="pageContentWrapperStyles">
         <router-view name="page"/>
       </div>
