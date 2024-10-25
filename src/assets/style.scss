@@ -1,10 +1,11 @@
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 $body-bg: #3E5F8A;
-
+$secondary-bg: #182d3a;
+$primary-color: #ff1200;
 
 body {
-  background-color: $body-bg;
+  background-color: $secondary-bg;
 }
 
 .navbar{
@@ -24,7 +25,7 @@ body {
 }
 
 .centered {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
