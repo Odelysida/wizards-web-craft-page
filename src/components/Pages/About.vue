@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="container bg-white mt-3 p-2">
+  <div class="container bg-white mt-3 p-2 about-container">
     <h1 class="text-black ps-5 pe-5 pt-3">
       Wir über uns
     </h1>
@@ -45,5 +45,10 @@
 <style scoped>
 .h-500px{
   height: 500px;
+}
+@media(max-width: 620px){
+  .about-container{
+    height: 1800px;
+  }
 }
 </style>
