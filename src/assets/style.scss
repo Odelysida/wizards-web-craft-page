@@ -1,0 +1,32 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+$body-bg: #3E5F8A;
+$secondary-bg: #182d3a;
+$primary-color: #ff1200;
+
+body {
+  background-color: $secondary-bg;
+}
+
+.navbar{
+ background-color: $white;
+}
+
+.nav-item{
+  color: $black;
+}
+
+.nav-link{
+  color: $black;
+}
+
+.container-fluid {
+  left: 0;
+}
+
+.centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
