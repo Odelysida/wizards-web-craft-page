@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.5",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "sass-embedded": "^1.79.3",

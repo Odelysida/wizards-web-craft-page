@@ -15,6 +15,20 @@ const publicRoutes= [{
             page: () => import('/src/components/Pages/Home.vue'),
             layoutNavbar: Navigation,
         }
+    }, {
+        name: 'about',
+        path: 'about',
+        components: {
+            page: () => import('/src/components/Pages/About.vue'),
+            layoutNavbar: Navigation,
+        }
+    }, {
+        name: 'contact',
+        path: 'contact',
+        components: {
+            page: () => import('/src/components/Pages/Contact.vue'),
+            layoutNavbar: Navigation,
+        }
     }]
 }];
 
