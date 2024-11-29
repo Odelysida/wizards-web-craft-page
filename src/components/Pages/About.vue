@@ -3,15 +3,15 @@
 </script>
 
 <template>
-  <div class="container-xxl bg-white mt-3 p-2">
+  <div class="container bg-white mt-3 p-2">
     <h1 class="text-black ps-5 pe-5 pt-3">
       Wir über uns
     </h1>
-    <p class="text-black fs-2 ps-5 pe-5 pt-2">
+    <p class="text-black fs-3 ps-5 pe-5 pt-2">
       Moin, wir sind die HA24B und das ist unsere Schülerfirma „Baller los",
       was so viel wie mit voller Kraft loslegen bedeutet – und das machen wir.
     </p>
-    <div class="text-black fs-2 ps-5 pe-5 pt-2">
+    <div class="text-black fs-3 ps-5 pe-5 pt-2">
       <ul>
         <li>
           Wir sind 24 Schülerinnen und Schüler im Alter von 15 bis 18 Jahren.
@@ -26,7 +26,7 @@
         </li>
       </ul>
     </div>
-    <p class="text-black fs-2 ps-5 pe-5 pt-2 h-500px">
+    <p class="text-black fs-3 ps-5 pe-5 pt-2 h-500px">
       Daher ist es selbstverständlich, dass wir unser Spiel so umweltfreundlich und hochwertig wie möglich produzieren.
 
       Wir nutzen einen 3D-Drucker mit recyclefähigem und sogar Recycling-Filament, um unsere Figuren selbst herstellen

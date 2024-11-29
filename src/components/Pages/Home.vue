@@ -8,13 +8,13 @@
       <div class="col-12 p-0 m-0 mt-4">
         <div class="row">
           <div class="col-4 p-1">
-            <img src="https://picsum.photos/640/480" class="card-img"/>
+            <img src="../../assets/2-IMG_2575.jpg" class="card-img" alt="Figuren"/>
           </div>
           <div class="col-4 p-1">
-            <img src="https://picsum.photos/640/480" class="card-img"/>
+            <img src="../../assets/besser-image.png" class="card-img" alt="Figuren"/>
           </div>
           <div class="col-4 p-1">
-            <img src="https://picsum.photos/640/480" class="card-img"/>
+            <img src="../../assets/1-drucker_allein.png" class="card-img" alt="3D Drucker"/>
           </div>
           <div class="centered"><h1 class="font-monospace text-white fs-1 fw-bold shadow">Baller Los Brettspiele</h1></div>
         </div>

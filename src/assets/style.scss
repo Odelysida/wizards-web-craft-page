@@ -4,8 +4,17 @@ $body-bg: #3E5F8A;
 $secondary-bg: #182d3a;
 $primary-color: #ff1200;
 
+h1{
+  font-family: "Arial Black", system-ui;
+}
+
+p, ul{
+  font-family: Georgia, system-ui;
+}
+
 body {
   background-color: $secondary-bg;
+
 }
 
 .navbar{
