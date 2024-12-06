@@ -37,6 +37,7 @@ const i18n = createI18n({
                 nameInput: 'Your name',
                 emailInput: 'Your E-Mail',
                 messageInput: 'Your message',
+                submit: 'Send',
             },
             error: {
                 title: 'Error 404! Page not Found!',
@@ -61,6 +62,7 @@ const i18n = createI18n({
                 nameInput: 'Ihr Name',
                 emailInput: 'Ihre E-Mail',
                 messageInput: 'Ihre Nachricht',
+                submit: 'Senden',
             },
             error: {
                 title: 'Fehler 404, Seite nicht gefunden!',

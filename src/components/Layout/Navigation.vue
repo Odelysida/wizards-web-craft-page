@@ -62,31 +62,36 @@ const changeLocale = (newLocale) => {
 
             <!-- Dropdown list -->
             <div v-if="isDropdownOpen" class="dropdown-list">
-              <ul style="padding-left: 0">
+              <ul style="padding-left: 0; width: 200px; right: 0;">
                 <li
                     v-for="locale in availableLocales"
                     :key="locale"
                     @click="changeLocale(locale)"
-                    class="dropdown-item"
+                    class="dropdown-item d-flex flex-row justify-content-start w-100"
                 >
-                  <span class="text-black fs-2 pl-2">
-                        {{ locale }}
-                  </span>
 
+
+                  <div class="language-name fs-2 pl-4 ml-2 mr-4" style="width: 64px;">
+                        {{ locale }}
+                  </div>
+                  <img v-if="locale === 'de'" style="height: 24px; width: 32px; margin-top: 10px;" src="./../../../public/flags/Germany.svg"
+                       alt="germany flag">
+                  <img v-else-if="locale === 'en'" style="height: 24px; width: 32px; margin-top: 10px;" src="./../../../public/flags/UK.svg.png"
+                       alt="england flag">
                 </li>
               </ul>
             </div>
           </div>
         </li>
         <li>
-               <div class="text-black fs-2 pl-2">
-                <div v-if="locale === 'de'">
-                  <img style="height: 24px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
-                </div>
-                 <div v-if="locale === 'en'">
-                   <img style="height: 24px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
-                 </div>
-               </div>
+          <div class="text-black fs-2 pl-2">
+            <div v-if="locale === 'de'">
+              <img style="height: 24px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
+            </div>
+            <div v-if="locale === 'en'">
+              <img style="height: 24px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -94,7 +99,7 @@ const changeLocale = (newLocale) => {
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
 .h-40px {
   height: 40px;
 }
@@ -138,10 +143,8 @@ const changeLocale = (newLocale) => {
 .dropdown-list {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 14px;
   width: 100%;
-  background: white;
-  border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
   margin: 16px;
@@ -151,9 +154,16 @@ const changeLocale = (newLocale) => {
   cursor: pointer;
   transition: background 0.3s;
   font-size: 16px;
+  width: 100%;
+  background: white;
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0;
+  background-color: #182d3a;
+  color: white;
+  text-decoration: underline;
+  .language-name {
+    color: white;
+  }
 }
 </style>
