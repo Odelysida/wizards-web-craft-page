@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import {UserCircleIcon, AtSymbolIcon, ChatBubbleLeftIcon} from '@heroicons/vue/24/outline/index.js';
+import {useI18n} from 'vue-i18n';
+const { t } = useI18n();
 
 const name = ref('');
 const email = ref('');
@@ -29,20 +32,18 @@ const handleSubmit = () => {
 
 <template>
   <form @submit.prevent="handleSubmit" class="container mt-5">
-    <h2 class="mb-4">Kontaktformular</h2>
-    
+    <h2 class="mb-4">{{t('contact.title')}}</h2>
     <!-- Name -->
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
       <div class="input-group">
-        <span class="input-group-text" id="name-addon">
-          <i class="bi bi-person"></i>
-        </span>
+        <div class="input-group-text" id="name-addon">
+          <UserCircleIcon class="text-white h-24px" />
+        </div>
         <input
           type="text"
           class="form-control"
           id="name"
-          placeholder="Ihr Name"
+          :placeholder="t('contact.nameInput')"
           v-model="name"
           aria-label="Name"
           aria-describedby="name-addon"
@@ -53,16 +54,15 @@ const handleSubmit = () => {
     
     <!-- E-Mail -->
     <div class="mb-3">
-      <label for="email" class="form-label">E-Mail</label>
       <div class="input-group">
-        <span class="input-group-text" id="email-addon">
-          <i class="bi bi-envelope"></i>
-        </span>
+        <div class="input-group-text" id="email-addon">
+          <AtSymbolIcon class="text-white h-24px"/>
+        </div>
         <input
           type="email"
           class="form-control"
           id="email"
-          placeholder="Ihre E-Mail-Adresse"
+          :placeholder="t('contact.emailInput')"
           v-model="email"
           aria-label="Email"
           aria-describedby="email-addon"
@@ -73,15 +73,14 @@ const handleSubmit = () => {
     
     <!-- Nachricht -->
     <div class="mb-3">
-      <label for="message" class="form-label">Nachricht</label>
       <div class="input-group">
-        <span class="input-group-text" id="message-addon">
-          <i class="bi bi-chat-left-text"></i>
-        </span>
+        <div class="input-group-text" id="message-addon">
+          <ChatBubbleLeftIcon clas="text-white h-24px" />
+        </div>
         <textarea
           class="form-control"
           id="message"
-          placeholder="Ihre Nachricht"
+          :placeholder="t('contact.messageInput')"
           v-model="message"
           aria-label="Nachricht"
           aria-describedby="message-addon"
@@ -107,5 +106,8 @@ h2 {
 
 button {
   margin-top: 1rem;
+}
+.h-24px{
+  height: 24px!important;
 }
 </style>
