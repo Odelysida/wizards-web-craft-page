@@ -29,6 +29,13 @@ const publicRoutes= [{
             page: () => import('/src/components/Pages/Contact.vue'),
             layoutNavbar: Navigation,
         }
+    }, {
+        name: '404',
+        path: '/:pathMatch(.*)*',
+        components: {
+            page: () => import('/src/components/Pages/Error.vue'),
+            layoutNavbar: Navigation,
+        }
     }]
 }];
 
