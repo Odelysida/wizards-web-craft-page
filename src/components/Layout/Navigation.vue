@@ -1,8 +1,30 @@
 <script setup>
 import {useRoute} from 'vue-router';
-import {HomeIcon, QuestionMarkCircleIcon, ChatBubbleLeftIcon} from '@heroicons/vue/24/outline';
+import {HomeIcon, QuestionMarkCircleIcon, ChatBubbleLeftIcon, LanguageIcon} from '@heroicons/vue/24/outline';
 
 const currentRoute = useRoute();
+import {useI18n} from 'vue-i18n';
+import {ref, watch} from 'vue';
+// Get access to i18n locale and availableLocales
+const {locale, availableLocales} = useI18n();
+
+const isDropdownOpen = ref(false);
+
+// State to manage the current locale
+const currentLocale = ref(locale.value);
+
+// Toggle the dropdown visibility
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value;
+};
+
+// Change the locale when an option is clicked
+const changeLocale = (newLocale) => {
+  locale.value = newLocale;
+  currentLocale.value = newLocale;
+  isDropdownOpen.value = false; // Close dropdown after selection
+};
+
 </script>
 
 <template>
@@ -19,7 +41,7 @@ const currentRoute = useRoute();
       <ul class="nav nav-fill d-flex flex-row justify-content-start">
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'home')}">
           <RouterLink class="nav-link" :to="{name: 'home'}" active-class="active">
-            <HomeIcon class="text-black h-40px" />
+            <HomeIcon class="text-black h-40px"/>
           </RouterLink>
         </li>
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'about')}">
@@ -32,6 +54,35 @@ const currentRoute = useRoute();
             <ChatBubbleLeftIcon class="text-black h-40px"/>
           </RouterLink>
         </li>
+        <li class="nav-item">
+          <div class="locale-changer">
+            <button @click="toggleDropdown" class="locale-btn">
+              <LanguageIcon class="text-black h-40px"/>
+            </button>
+
+            <!-- Dropdown list -->
+            <div v-if="isDropdownOpen" class="dropdown-list">
+              <ul style="padding-left: 0">
+                <li
+                    v-for="locale in availableLocales"
+                    :key="locale"
+                    @click="changeLocale(locale)"
+                    class="dropdown-item"
+                >
+                  <span class="text-black fs-2 pl-2">
+                        {{ locale }}
+                  </span>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li>
+               <span class="text-black fs-2 pl-2">
+            {{ locale }}
+               </span>
+        </li>
       </ul>
     </div>
   </nav>
@@ -42,23 +93,62 @@ const currentRoute = useRoute();
 .h-40px {
   height: 40px;
 }
-.w-350px{
+
+.w-350px {
   width: 350px;
 }
-.link-text{
+
+.link-text {
   margin-top: 4px;
   font-weight: bold;
-  font-family: "Arial Black",system-ui;
+  font-family: "Arial Black", system-ui;
 }
 
-@media(max-width: 620px){
-  .heading{
+@media (max-width: 620px) {
+  .heading {
     display: none;
   }
-  .w-350px{
+
+  .w-350px {
     width: 100px;
   }
 }
 
+.locale-changer {
+  position: relative;
+}
 
+.locale-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.locale-btn span {
+  margin-left: 8px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin: 16px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
 </style>
