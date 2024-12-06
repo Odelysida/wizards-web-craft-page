@@ -55,7 +55,7 @@ const changeLocale = (newLocale) => {
           </RouterLink>
         </li>
         <li class="nav-item">
-          <div class="locale-changer">
+          <div class="locale-changer mt-1">
             <button @click="toggleDropdown" class="locale-btn">
               <LanguageIcon class="text-black h-40px"/>
             </button>
@@ -79,9 +79,14 @@ const changeLocale = (newLocale) => {
           </div>
         </li>
         <li>
-               <span class="text-black fs-2 pl-2">
-            {{ locale }}
-               </span>
+               <div class="text-black fs-2 pl-2">
+                <div v-if="locale === 'de'">
+                  <img style="height: 24px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
+                </div>
+                 <div v-if="locale === 'en'">
+                   <img style="height: 24px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
+                 </div>
+               </div>
         </li>
       </ul>
     </div>
