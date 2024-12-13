@@ -4,6 +4,7 @@ import router from './Router/router.js';
 import './assets/style.scss';
 import Carousel3d from 'vue-carousel-3d';
 import {createI18n} from 'vue-i18n';
+import * as MarmosetViewer from 'vue-marmoset-viewer'
 
 
 const i18n = createI18n({
@@ -78,5 +79,6 @@ const app = createApp(App);
 app.use(i18n);
 app.use(router);
 app.use(Carousel3d);
+app.use(MarmosetViewer.MarmosetViewer)
 
 app.mount('#app');

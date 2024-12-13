@@ -2,6 +2,7 @@
 import Carousel from '../../composeables/Carousel.vue';
 import {vue3dLoader} from 'vue-3d-loader';
 import {ref} from 'vue';
+import ModelViewer from '../../composeables/ModelViewer.vue';
 
 const rotation = ref();
 rotation.value = {
@@ -32,15 +33,7 @@ function rotate() {
     </div>
     <div class="row p-0 m-0">
       <div class="col-12 p-0 m-0 mt-4">
-        <vue3dLoader
-            :height="500"
-            :width="500"
-            :showFps="true"
-            filePath="../../assets/obj/cube.obj"
-            :backgroundColor="0x000000"
-            :rotation="rotation"
-            @load="onLoad()"
-        />
+        <ModelViewer></ModelViewer>
       </div>
     </div>
   </div>

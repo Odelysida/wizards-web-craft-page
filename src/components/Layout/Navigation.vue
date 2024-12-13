@@ -35,7 +35,7 @@ const changeLocale = (newLocale) => {
           <RouterLink class="d-flex align-items-center" :to="{name: 'home'}">
             <img src="../../assets/logo.png" class="text-black h-40px" alt="logo"/>
           </RouterLink>
-          <h1 class="fs-4 w-100 mt-2 heading">Baller Los Brettspiele</h1>
+            <h1 class="row fs-4 w-100 heading">Baller Los Brettspiele</h1>
         </li>
       </ul>
       <ul class="nav nav-fill d-flex flex-row justify-content-start">
@@ -86,10 +86,10 @@ const changeLocale = (newLocale) => {
         <li>
           <div class="text-black fs-2 pl-2">
             <div v-if="locale === 'de'">
-              <img style="height: 24px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
+              <img style="height: 24px; width:28px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
             </div>
             <div v-if="locale === 'en'">
-              <img style="height: 24px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
+              <img style="height: 18px; width:28px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
             </div>
           </div>
         </li>
@@ -114,13 +114,13 @@ const changeLocale = (newLocale) => {
   font-family: "Arial Black", system-ui;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 680px) {
   .heading {
     display: none;
   }
 
   .w-350px {
-    width: 100px;
+    width: 75px;
   }
 }
 
@@ -165,5 +165,8 @@ const changeLocale = (newLocale) => {
   .language-name {
     color: white;
   }
+}
+.sub-heading{
+  font-size:12px;
 }
 </style>

@@ -2,12 +2,15 @@
 import {ref} from 'vue';
 import {UserCircleIcon, AtSymbolIcon, ChatBubbleLeftIcon} from '@heroicons/vue/24/outline/index.js';
 import {useI18n} from 'vue-i18n';
+import * as emailjs from '@emailjs/browser';
 
 const {t} = useI18n();
 
 const name = ref('');
 const email = ref('');
 const message = ref('');
+
+const form = ref(null);
 
 const handleSubmit = () => {
   if (!name.value || !email.value || !message.value) {
@@ -29,6 +32,21 @@ const handleSubmit = () => {
   email.value = '';
   message.value = '';
 };
+
+const sendEmail = () => {
+    emailjs
+        .sendForm(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, form, {
+          publicKey: process.env.EMAILJS_PUBLIC_KEY
+        })
+        .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+        );
+}
 </script>
 
 <template>
@@ -38,7 +56,7 @@ const handleSubmit = () => {
         <h2>{{ t('contact.title') }}</h2>
       </div>
       <div class="card-body">
-        <form @submit.prevent="handleSubmit" class="container " data-bs-theme="light">
+        <form @submit.prevent="sendEmail" v-model="form" class="container " data-bs-theme="light">
           <!-- Name -->
           <div class="mb-3">
             <div class="input-group">
