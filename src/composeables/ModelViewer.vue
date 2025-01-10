@@ -100,18 +100,25 @@ const setupLighting = (scene: THREE.Scene) => {
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add(ambientLight);
 
-  const frontLight = new THREE.DirectionalLight(0xffffff, 1);
+  const frontLight = new THREE.DirectionalLight(0xffffff, 0.5);
   frontLight.position.set(0, 5, 10);
-  frontLight.castShadow = true;
   scene.add(frontLight);
 
+  const backLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  backLight.position.set(0, 5, -10);
+  scene.add(backLight);
+
   const leftLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  leftLight.position.set(-10, 5, 0);
+  leftLight.position.set(-10, 5, 0);  // Position: Links
   scene.add(leftLight);
 
   const rightLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  rightLight.position.set(10, 5, 0);
+  rightLight.position.set(10, 5, 0);  // Position: Rechts
   scene.add(rightLight);
+
+  const bottomLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  bottomLight.position.set(0, -5, 0);  // Position: Unten
+  scene.add(bottomLight);
 };
 
 // OrbitControls einrichten
