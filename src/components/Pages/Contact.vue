@@ -26,17 +26,24 @@ const handleSubmit = () => {
   });
 
   alert('Ihre Nachricht wurde erfolgreich gesendet!');
-
   // Felder leeren
   name.value = '';
   email.value = '';
   message.value = '';
 };
 
+
+console.log();
 const sendEmail = () => {
+    alert(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
     emailjs
-        .sendForm(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, form, {
-          publicKey: process.env.EMAILJS_PUBLIC_KEY
+        .send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+        {
+            'from_name': 'ABSENDER',
+            'email': 'ABSENDER@TEST.DE',
+            'message': 'MESSAGE'
+        }, {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         })
         .then(
             () => {
@@ -68,7 +75,7 @@ const sendEmail = () => {
                   class="form-control fs-2"
                   id="name"
                   :placeholder="t('contact.nameInput')"
-                  v-model="name"
+                  v-model="from_name"
                   aria-label="Name"
                   aria-describedby="name-addon"
                   required
