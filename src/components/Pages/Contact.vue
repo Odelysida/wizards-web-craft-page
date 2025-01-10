@@ -56,7 +56,7 @@ const sendEmail = () => {
         <h2>{{ t('contact.title') }}</h2>
       </div>
       <div class="card-body">
-        <form @submit.prevent="sendEmail" v-model="form" class="container " data-bs-theme="light">
+        <form @submit.prevent="sendEmail" class="container " data-bs-theme="light">
           <!-- Name -->
           <div class="mb-3">
             <div class="input-group">
