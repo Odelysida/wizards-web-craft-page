@@ -97,29 +97,37 @@ const init = () => {
 
 // Beleuchtung einrichten
 const setupLighting = (scene: THREE.Scene) => {
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+  // Ambient Light: Allgemeines Umgebungslicht
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Dunkleres, aber allseitiges Licht
   scene.add(ambientLight);
 
-  const frontLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  frontLight.position.set(0, 5, 10);
+  // Haupt-Beleuchtung von oben
+  const topLight = new THREE.DirectionalLight(0xffffff, 0.6);
+  topLight.position.set(0, 10, 0);
+  topLight.target.position.set(0, 0, 0); 
+  scene.add(topLight);
+
+  const frontLight = new THREE.DirectionalLight(0xffffff, 0.3); // Licht von vorne
+  frontLight.position.set(0, 5, 10); 
   scene.add(frontLight);
 
-  const backLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  const backLight = new THREE.DirectionalLight(0xffffff, 0.3); // Licht von hinten
   backLight.position.set(0, 5, -10);
   scene.add(backLight);
 
-  const leftLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  leftLight.position.set(-10, 5, 0);  // Position: Links
+  const leftLight = new THREE.DirectionalLight(0xffffff, 0.3); // Licht von links
+  leftLight.position.set(-10, 5, 0);
   scene.add(leftLight);
 
-  const rightLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  rightLight.position.set(10, 5, 0);  // Position: Rechts
+  const rightLight = new THREE.DirectionalLight(0xffffff, 0.3); // Licht von rechts
+  rightLight.position.set(10, 5, 0);
   scene.add(rightLight);
 
-  const bottomLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  bottomLight.position.set(0, -5, 0);  // Position: Unten
+  const bottomLight = new THREE.DirectionalLight(0xffffff, 0.3); // Licht von unten
+  bottomLight.position.set(0, -5, 0); 
   scene.add(bottomLight);
 };
+
 
 // OrbitControls einrichten
 const setupControls = (controls: OrbitControls) => {
