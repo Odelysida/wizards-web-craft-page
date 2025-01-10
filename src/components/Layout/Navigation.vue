@@ -4,7 +4,7 @@ import {HomeIcon, QuestionMarkCircleIcon, ChatBubbleLeftIcon, LanguageIcon} from
 
 const currentRoute = useRoute();
 import {useI18n} from 'vue-i18n';
-import {ref, watch} from 'vue';
+import {onBeforeUnmount, onMounted, ref, watch} from 'vue';
 // Get access to i18n locale and availableLocales
 const {locale, availableLocales} = useI18n();
 
@@ -25,6 +25,30 @@ const changeLocale = (newLocale) => {
   isDropdownOpen.value = false; // Close dropdown after selection
 };
 
+// Close the dropdown on clicking outside or scrolling
+const closeDropdown = () => {
+  isDropdownOpen.value = false;
+};
+
+// Event listener to detect clicks outside the dropdown
+const handleClickOutside = (event) => {
+  const dropdown = document.querySelector('.dropdown-list');
+  const button = document.querySelector('.locale-btn');
+  if (dropdown && !dropdown.contains(event.target) && !button.contains(event.target)) {
+    closeDropdown();
+  }
+};
+
+// Add event listeners on mount and remove them on unmount
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside);
+  window.addEventListener('scroll', closeDropdown);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside);
+  window.removeEventListener('scroll', closeDropdown);
+});
 </script>
 
 <template>
@@ -35,8 +59,10 @@ const changeLocale = (newLocale) => {
           <RouterLink class="d-flex align-items-center" :to="{name: 'home'}">
             <img src="../../assets/logo.png" class="text-black h-40px" alt="logo"/>
           </RouterLink>
-            <h1 class="row fs-4 w-100 heading">Baller Los Brettspiele</h1>
+          <h1 class="fs-4 w-100 mt-2 heading">Baller Los Brettspiele <br> </h1>
         </li>
+        <h6 class="fs-9 w-100 sub-heading">Ein Schülerunternehmen der BBS1 Lüneburg
+          mit Meerblick</h6>
       </ul>
       <ul class="nav nav-fill d-flex flex-row justify-content-start">
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'home')}">
@@ -59,10 +85,10 @@ const changeLocale = (newLocale) => {
             <button @click="toggleDropdown" class="locale-btn">
               <LanguageIcon class="text-black h-40px"/>
             </button>
-
+          </div>
             <!-- Dropdown list -->
-            <div v-if="isDropdownOpen" class="dropdown-list">
-              <ul style="padding-left: 0; width: 200px; right: 0;">
+            <div v-if="isDropdownOpen" class="dropdown-list" style="right: 0;">
+              <ul style="right: 0; width: 150px;">
                 <li
                     v-for="locale in availableLocales"
                     :key="locale"
@@ -81,15 +107,14 @@ const changeLocale = (newLocale) => {
                 </li>
               </ul>
             </div>
-          </div>
         </li>
         <li>
           <div class="text-black fs-2 pl-2">
             <div v-if="locale === 'de'">
-              <img style="height: 24px; width:28px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
+              <img style="height: 24px; width: 36px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
             </div>
             <div v-if="locale === 'en'">
-              <img style="height: 18px; width:28px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
+              <img style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
             </div>
           </div>
         </li>
@@ -114,13 +139,21 @@ const changeLocale = (newLocale) => {
   font-family: "Arial Black", system-ui;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 620px) {
   .heading {
     display: none;
   }
-
   .w-350px {
-    width: 75px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sub-heading {
+    display: none;
+  }
+  .w-350px {
+    width: 100px;
   }
 }
 
@@ -139,15 +172,20 @@ const changeLocale = (newLocale) => {
 .locale-btn span {
   margin-left: 8px;
 }
+.navbar {
+  height: 100px;
+  position: relative;
+}
 
 .dropdown-list {
-  position: absolute;
-  top: 100%;
-  right: 14px;
-  width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  margin: 16px;
+  position: fixed;
+  top: 92px;
+  right: 16px;
+  min-width: 150px;
+  max-width: calc(100% - 32px);
+  z-index: 1000;
+  padding: 8px 0;
+  overflow: hidden;
 }
 
 .dropdown-item {
@@ -166,7 +204,5 @@ const changeLocale = (newLocale) => {
     color: white;
   }
 }
-.sub-heading{
-  font-size:12px;
-}
+
 </style>
