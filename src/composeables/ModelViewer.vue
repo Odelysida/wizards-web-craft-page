@@ -97,7 +97,7 @@ const init = () => {
 
 // Beleuchtung einrichten
 const setupLighting = (scene: THREE.Scene) => {
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add(ambientLight);
 
   const frontLight = new THREE.DirectionalLight(0xffffff, 1);
