@@ -39,6 +39,8 @@ const i18n = createI18n({
                 emailInput: 'Your E-Mail',
                 messageInput: 'Your message',
                 submit: 'Send',
+                message_success: 'Your message has been successfully sent.',
+                message_error: 'Error while processing your message. Please contact this pages administrator.'
             },
             error: {
                 title: 'Error 404! Page not Found!',
@@ -49,7 +51,7 @@ const i18n = createI18n({
             about: {
                 title: 'Wir über uns',
                 introduction: 'Moin, wir sind die HA24B und das ist unsere Schülerfirma „Baller los", was so viel wie mit voller Kraft loslegen bedeutet – und das machen wir.',
-                generalInformation: 'Wir sind 24 Schülerinnen und Schüler im Alter von 15 bis 18 Jahren.\n' +
+                general_Information: 'Wir sind 24 Schülerinnen und Schüler im Alter von 15 bis 18 Jahren.\n' +
                     'Diese Schülerfirma haben wir im Rahmen der einjährigen Berufsfachschule Wirtschaft an der BBS I Lüneburg gegründet.',
                 whatWeDo: 'Wir stellen ein eigenes Spiel her und wollen mit diesem Spiel auf den Umweltschutz, besonders bei den Gewässern, aufmerksam machen.',
                 bigText: 'Daher ist es selbstverständlich, dass wir unser Spiel so umweltfreundlich und hochwertig wie möglich produzieren. \n' +
@@ -64,6 +66,8 @@ const i18n = createI18n({
                 emailInput: 'Ihre E-Mail',
                 messageInput: 'Ihre Nachricht',
                 submit: 'Senden',
+                message_success: 'Ihre Nachricht wurde erfolgreich übermittelt.',
+                message_error: 'Fehler bei der Nachrichtenübermittlung. Bitte kontaktieren Sie den Administrator der Website.'
             },
             error: {
                 title: 'Fehler 404, Seite nicht gefunden!',

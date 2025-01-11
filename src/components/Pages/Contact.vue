@@ -6,13 +6,8 @@ import * as emailjs from '@emailjs/browser';
 
 const {t} = useI18n();
 
-const name = ref('');
-const email = ref('');
-const message = ref('');
-
 const form = ref(null);
 
-console.log();
 const sendEmail = () => {
     let from_name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -29,9 +24,12 @@ const sendEmail = () => {
         .then(
             () => {
               console.log('SUCCESS!');
+              document.querySelector('form').innerHTML = "<h2>" + t("contact.message_success") + "</h2>";
+              
             },
             (error) => {
               console.log('FAILED...', error.text);
+              document.querySelector('form').innerHTML = "<h2>" + t("contact.message_error") + "</h2>";
             },
         );
 }
