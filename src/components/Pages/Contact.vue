@@ -6,44 +6,30 @@ import * as emailjs from '@emailjs/browser';
 
 const {t} = useI18n();
 
-const name = ref('');
-const email = ref('');
-const message = ref('');
-
 const form = ref(null);
 
-const handleSubmit = () => {
-  if (!name.value || !email.value || !message.value) {
-    alert('Bitte füllen Sie alle Felder aus.');
-    return;
-  }
-
-  // Hier kannst du die Formular-Daten verarbeiten (z. B. an eine API senden)
-  console.log({
-    name: name.value,
-    email: email.value,
-    message: message.value,
-  });
-
-  alert('Ihre Nachricht wurde erfolgreich gesendet!');
-
-  // Felder leeren
-  name.value = '';
-  email.value = '';
-  message.value = '';
-};
-
 const sendEmail = () => {
+    let from_name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
     emailjs
-        .sendForm(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, form, {
-          publicKey: process.env.EMAILJS_PUBLIC_KEY
+        .send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+        {
+            'from_name': from_name,
+            'email': email,
+            'message': message
+        }, {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         })
         .then(
             () => {
               console.log('SUCCESS!');
+              document.querySelector('form').innerHTML = "<h2>" + t("contact.message_success") + "</h2>";
+              
             },
             (error) => {
               console.log('FAILED...', error.text);
+              document.querySelector('form').innerHTML = "<h2>" + t("contact.message_error") + "</h2>";
             },
         );
 }
@@ -68,7 +54,7 @@ const sendEmail = () => {
                   class="form-control fs-2"
                   id="name"
                   :placeholder="t('contact.nameInput')"
-                  v-model="name"
+                  v-model="from_name"
                   aria-label="Name"
                   aria-describedby="name-addon"
                   required
