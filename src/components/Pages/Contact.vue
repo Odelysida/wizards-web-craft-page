@@ -12,36 +12,17 @@ const message = ref('');
 
 const form = ref(null);
 
-const handleSubmit = () => {
-  if (!name.value || !email.value || !message.value) {
-    alert('Bitte füllen Sie alle Felder aus.');
-    return;
-  }
-
-  // Hier kannst du die Formular-Daten verarbeiten (z. B. an eine API senden)
-  console.log({
-    name: name.value,
-    email: email.value,
-    message: message.value,
-  });
-
-  alert('Ihre Nachricht wurde erfolgreich gesendet!');
-  // Felder leeren
-  name.value = '';
-  email.value = '';
-  message.value = '';
-};
-
-
 console.log();
 const sendEmail = () => {
-    alert(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    let from_name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
     emailjs
         .send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
         {
-            'from_name': 'ABSENDER',
-            'email': 'ABSENDER@TEST.DE',
-            'message': 'MESSAGE'
+            'from_name': from_name,
+            'email': email,
+            'message': message
         }, {
           publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         })
