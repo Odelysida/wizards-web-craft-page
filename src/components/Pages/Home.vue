@@ -23,24 +23,6 @@ function rotate() {
 }
 rotate();
 
-// Image list for the carousel
-// Added different paths depending on build environment
-/*
-const images = import.meta.env.DEV ? [
-  'src/assets/1-drucker_allein.png',
-  'src/assets/2-IMG_2575.jpg',
-  'src/assets/3-IMG_2576.jpg',
-  'src/assets/4-IMG_2572.jpg',
-  'src/assets/5-IMG_2571.jpg',
-  'src/assets/besser-image.png'
-] : [
-  '/assets/1-drucker_allein.png',
-  '/assets/2-IMG_2575.jpg',
-  '/assets/3-IMG_2576.jpg',
-  '/assets/4-IMG_2572.jpg',
-  '/assets/5-IMG_2571.jpg',
-  '/assets/besser-image.png'
-];*/
 const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 </script>
 
