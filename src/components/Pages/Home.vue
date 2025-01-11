@@ -3,6 +3,12 @@ import { Carousel, Slide, Navigation } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 import { ref } from 'vue';
 import ModelViewer from '../../composeables/ModelViewer.vue';
+import imgUrl1 from "../../assets/1-drucker_allein.png";
+import imgUrl2 from "../../assets/2-IMG_2575.jpg";
+import imgUrl3 from "../../assets/3-IMG_2576.jpg";
+import imgUrl4 from "../../assets/4-IMG_2572.jpg";
+import imgUrl5 from "../../assets/5-IMG_2571.jpg";
+import imgUrl6 from "../../assets/besser-image.png";
 
 // Rotation setup for the 3D model
 const rotation = ref({
@@ -19,6 +25,7 @@ rotate();
 
 // Image list for the carousel
 // Added different paths depending on build environment
+/*
 const images = import.meta.env.DEV ? [
   'src/assets/1-drucker_allein.png',
   'src/assets/2-IMG_2575.jpg',
@@ -33,7 +40,8 @@ const images = import.meta.env.DEV ? [
   '/assets/4-IMG_2572.jpg',
   '/assets/5-IMG_2571.jpg',
   '/assets/besser-image.png'
-];
+];*/
+const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 </script>
 
 <template>
