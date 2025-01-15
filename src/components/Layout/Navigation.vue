@@ -61,7 +61,7 @@ onBeforeUnmount(() => {
           </RouterLink>
           <h1 class="fs-4 w-100 mt-2 heading">Baller Los Brettspiele <br> </h1>
         </li>
-        <h6 class="fs-9 w-100 sub-heading">Ein Schülerunternehmen der BBS1 Lüneburg
+        <h6 class="fs-9 w-100 sub-heading" style="color:grey">Ein Schülerunternehmen der BBS1 Lüneburg
           mit Meerblick</h6>
       </ul>
       <ul class="nav nav-fill d-flex flex-row justify-content-start">
