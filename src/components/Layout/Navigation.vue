@@ -85,7 +85,7 @@ const handleKeydown = (event, locale) => {
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'about')}">
           <RouterLink class="nav-link" :to="{name: 'about'}" active-class="active" aria-label="About">
             <QuestionMarkCircleIcon class="text-black h-40px" aria-hidden="true"/>
-          </RouterLink>
+          </RouterLink >
         </li>
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'contact')}">
           <RouterLink class="nav-link" :to="{name: 'contact'}" active-class="active" aria-label="Contact">
@@ -136,10 +136,10 @@ const handleKeydown = (event, locale) => {
         <li>
           <div class="text-black fs-2 pl-2">
             <div v-if="locale === 'de'">
-              <img style="height: 24px; width: 36px;" src="./../../../public/flags/Germany.svg" alt="Germany Flag" />
+              <img class="img-flag" style="height: 24px; width: 36px;" src="./../../../public/flags/Germany.svg" alt="Germany Flag" />
             </div>
             <div v-if="locale === 'en'">
-              <img style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="UK Flag" />
+              <img class="img-flag" style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="UK Flag" />
             </div>
           </div>
         </li>
@@ -169,6 +169,12 @@ const handleKeydown = (event, locale) => {
   }
   .w-350px {
     width: 100px;
+  }*
+  img.img-flag {
+    vertical-align: bottom;
+  }
+  .navbar {
+    height: 65px !important;
   }
 }
 
@@ -181,9 +187,14 @@ const handleKeydown = (event, locale) => {
   }
 }
 
+ul.justify-content-start {
+    width: fit-content;
+}
+
 .locale-changer {
   position: relative;
 }
+
 
 .locale-btn {
   background: none;
@@ -196,7 +207,7 @@ const handleKeydown = (event, locale) => {
 .locale-btn span {
   margin-left: 8px;
 }
-
+ 
 .navbar {
   height: 100px;
   position: relative;
