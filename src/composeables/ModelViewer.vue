@@ -75,7 +75,8 @@ const init = () => {
     setupControls(controls2.value);
   }
 
-  loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1, 0xFFFF00);
+  loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1, 0xFFFFFF);
+  //loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1, 0xFFFF00);
   loadModel(scene2.value, '/stl/cube.stl', model2, isLoading2, 0xFFFFFF);
 };
 
@@ -83,9 +84,29 @@ const setupLighting = (scene: THREE.Scene) => {
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add(ambientLight);
 
-  const topLight = new THREE.DirectionalLight(0xffffff, 0.6);
-  topLight.position.set(0, 10, 0);
+  const topLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  topLight.position.set(0, 20, 0);
   scene.add(topLight);
+
+  const bottomLight = new THREE.DirectionalLight(0xffffff, 0.3);
+  bottomLight.position.set(0, -20, 0);
+  scene.add(bottomLight);
+
+  const frontLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  frontLight.position.set(0, 0, 20);
+  scene.add(frontLight);
+
+  const backLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  backLight.position.set(0, 0, -20);
+  scene.add(backLight);
+
+  const leftLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  leftLight.position.set(-20, 0, 0);
+  scene.add(leftLight);
+
+  const rightLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  rightLight.position.set(20, 0, 0);
+  scene.add(rightLight);
 };
 
 const setupControls = (controls: OrbitControls) => {
