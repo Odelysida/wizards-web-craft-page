@@ -1,11 +1,10 @@
-import {createApp} from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import router from './Router/router.js';
 import './assets/style.scss';
 import Carousel3d from 'vue-carousel-3d';
-import {createI18n} from 'vue-i18n';
-import * as MarmosetViewer from 'vue-marmoset-viewer'
-
+import { createI18n } from 'vue-i18n';
+import * as MarmosetViewer from 'vue-marmoset-viewer';
 
 const i18n = createI18n({
     legacy: false,
@@ -24,7 +23,7 @@ const i18n = createI18n({
                 bigText: 'It is therefore a matter of course that we produce our game as\n' +
                     'environmentally friendly and high-quality as possible. We use\n' +
                     'a 3D printer with recyclable and even recycled filament to be able to\n' +
-                    'produce our figures ourselves. ',
+                    'produce our figures ourselves.',
                 pros: 'The other materials\n' +
                     'such as the game board and packaging are recyclable or made from\n' +
                     'recycled material. We are also investigating the pollution of the\n' +
@@ -40,11 +39,11 @@ const i18n = createI18n({
                 messageInput: 'Your message',
                 submit: 'Send',
                 message_success: 'Your message has been successfully sent.',
-                message_error: 'Error while processing your message. Please contact this pages administrator.'
+                message_error: 'Error while processing your message. Please contact this page\'s administrator.'
             },
             error: {
                 title: 'Error 404! Page not Found!',
-                content: 'The Page your requested cant be found or is inexistent!'
+                content: 'The page you requested can\'t be found or is inexistent!'
             }
         },
         de: {
@@ -77,12 +76,13 @@ const i18n = createI18n({
     },
 });
 
-i18n.global.locale.value = 'de'
+i18n.global.locale.value = 'de';
 
 const app = createApp(App);
+
 app.use(i18n);
 app.use(router);
 app.use(Carousel3d);
-app.use(MarmosetViewer.MarmosetViewer)
+app.use(MarmosetViewer.MarmosetViewer);
 
 app.mount('#app');

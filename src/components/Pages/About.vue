@@ -32,7 +32,7 @@ const { t } = useI18n();
     <div class="image-section">
       <img
           src="../../assets/Gruppenfoto.jpg"
-          alt="Gruppenfoto"
+          alt="Gruppenfoto der Schüler"
           class="responsive-image"
       />
     </div>

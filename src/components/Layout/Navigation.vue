@@ -5,32 +5,26 @@ import {HomeIcon, QuestionMarkCircleIcon, ChatBubbleLeftIcon, LanguageIcon} from
 const currentRoute = useRoute();
 import {useI18n} from 'vue-i18n';
 import {onBeforeUnmount, onMounted, ref, watch} from 'vue';
-// Get access to i18n locale and availableLocales
 const {locale, availableLocales} = useI18n();
 
 const isDropdownOpen = ref(false);
-
-// State to manage the current locale
 const currentLocale = ref(locale.value);
 
-// Toggle the dropdown visibility
+// Funktionen für Dropdown und Lokalisierung
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
 };
 
-// Change the locale when an option is clicked
 const changeLocale = (newLocale) => {
   locale.value = newLocale;
   currentLocale.value = newLocale;
-  isDropdownOpen.value = false; // Close dropdown after selection
+  isDropdownOpen.value = false;
 };
 
-// Close the dropdown on clicking outside or scrolling
 const closeDropdown = () => {
   isDropdownOpen.value = false;
 };
 
-// Event listener to detect clicks outside the dropdown
 const handleClickOutside = (event) => {
   const dropdown = document.querySelector('.dropdown-list');
   const button = document.querySelector('.locale-btn');
@@ -39,7 +33,6 @@ const handleClickOutside = (event) => {
   }
 };
 
-// Add event listeners on mount and remove them on unmount
 onMounted(() => {
   document.addEventListener('click', handleClickOutside);
   window.addEventListener('scroll', closeDropdown);
@@ -56,54 +49,53 @@ onBeforeUnmount(() => {
     <div class="container-xxl mw-100">
       <ul class="nav justify-content-start w-350px">
         <li class="nav-item d-flex">
-          <RouterLink class="d-flex align-items-center" :to="{name: 'home'}">
-            <img src="../../assets/logo.png" class="text-black h-40px" alt="logo"/>
+          <RouterLink class="d-flex align-items-center" :to="{name: 'home'}" aria-label="Home">
+            <img src="../../assets/logo.png" class="text-black h-40px" alt="Baller Los Brettspiele Logo"/>
           </RouterLink>
-          <h1 class="fs-4 w-100 mt-2 heading">Baller Los Brettspiele <br> </h1>
+          <h1 class="fs-4 w-100 mt-2 heading">Baller Los Brettspiele <br></h1>
         </li>
-        <h6 class="fs-9 w-100 sub-heading" style="color:grey">Ein Schülerunternehmen der BBS1 Lüneburg
-          mit Meerblick</h6>
+        <h6 class="fs-9 w-100 sub-heading" style="color:grey" aria-hidden="true">
+          Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick
+        </h6>
       </ul>
       <ul class="nav nav-fill d-flex flex-row justify-content-start">
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'home')}">
-          <RouterLink class="nav-link" :to="{name: 'home'}" active-class="active">
-            <HomeIcon class="text-black h-40px"/>
+          <RouterLink class="nav-link" :to="{name: 'home'}" active-class="active" aria-label="Home">
+            <HomeIcon class="text-black h-40px" aria-hidden="true"/>
           </RouterLink>
         </li>
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'about')}">
-          <RouterLink class="nav-link" :to="{name: 'about'}" active-class="active">
-            <QuestionMarkCircleIcon class="text-black h-40px"/>
+          <RouterLink class="nav-link" :to="{name: 'about'}" active-class="active" aria-label="About">
+            <QuestionMarkCircleIcon class="text-black h-40px" aria-hidden="true"/>
           </RouterLink>
         </li>
         <li class="nav-item" :class="{'nav-item--active': currentRoute.matched.some(({name}) => name === 'contact')}">
-          <RouterLink class="nav-link" :to="{name: 'contact'}" active-class="active">
-            <ChatBubbleLeftIcon class="text-black h-40px"/>
+          <RouterLink class="nav-link" :to="{name: 'contact'}" active-class="active" aria-label="Contact">
+            <ChatBubbleLeftIcon class="text-black h-40px" aria-hidden="true"/>
           </RouterLink>
         </li>
         <li class="nav-item">
           <div class="locale-changer mt-1">
-            <button @click="toggleDropdown" class="locale-btn">
-              <LanguageIcon class="text-black h-40px"/>
+            <button @click="toggleDropdown" class="locale-btn" aria-haspopup="true" aria-expanded="isDropdownOpen.toString()" aria-label="Change Language">
+              <LanguageIcon class="text-black h-40px" aria-hidden="true"/>
             </button>
           </div>
             <!-- Dropdown list -->
-            <div v-if="isDropdownOpen" class="dropdown-list" style="right: 0;">
-              <ul style="right: 0; width: 150px;">
+            <div v-if="isDropdownOpen" class="dropdown-list" role="listbox" aria-label="Language Options">
+              <ul>
                 <li
-                    v-for="locale in availableLocales"
-                    :key="locale"
-                    @click="changeLocale(locale)"
-                    class="dropdown-item d-flex flex-row justify-content-start w-100"
+                  v-for="locale in availableLocales"
+                  :key="locale"
+                  @click="changeLocale(locale)"
+                  class="dropdown-item d-flex flex-row justify-content-start w-100"
+                  role="option"
+                  :aria-selected="locale === currentLocale ? 'true' : 'false'"
                 >
-
-
                   <div class="language-name fs-2 pl-4 ml-2 mr-4" style="width: 64px;">
-                        {{ locale }}
+                    {{ locale }}
                   </div>
-                  <img v-if="locale === 'de'" style="height: 24px; width: 32px; margin-top: 10px;" src="./../../../public/flags/Germany.svg"
-                       alt="germany flag">
-                  <img v-else-if="locale === 'en'" style="height: 24px; width: 32px; margin-top: 10px;" src="./../../../public/flags/UK.svg.png"
-                       alt="england flag">
+                  <img v-if="locale === 'de'" style="height: 24px; width: 32px;" src="./../../../public/flags/Germany.svg" alt="Deutsch">
+                  <img v-else-if="locale === 'en'" style="height: 24px; width: 32px;" src="./../../../public/flags/UK.svg.png" alt="English">
                 </li>
               </ul>
             </div>
@@ -111,10 +103,10 @@ onBeforeUnmount(() => {
         <li>
           <div class="text-black fs-2 pl-2">
             <div v-if="locale === 'de'">
-              <img style="height: 24px; width: 36px;" src="./../../../public/flags/Germany.svg" alt="germany flag">
+              <img style="height: 24px; width: 36px;" src="./../../../public/flags/Germany.svg" alt="Germany Flag" />
             </div>
             <div v-if="locale === 'en'">
-              <img style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="england flag">
+              <img style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="UK Flag" />
             </div>
           </div>
         </li>
@@ -122,7 +114,6 @@ onBeforeUnmount(() => {
     </div>
   </nav>
 </template>
-
 
 <style scoped lang="scss">
 .h-40px {
@@ -172,6 +163,7 @@ onBeforeUnmount(() => {
 .locale-btn span {
   margin-left: 8px;
 }
+
 .navbar {
   height: 100px;
   position: relative;
@@ -204,5 +196,4 @@ onBeforeUnmount(() => {
     color: white;
   }
 }
-
 </style>
