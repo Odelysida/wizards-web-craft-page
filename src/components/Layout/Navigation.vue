@@ -4,11 +4,14 @@ import {HomeIcon, QuestionMarkCircleIcon, ChatBubbleLeftIcon, LanguageIcon} from
 
 const currentRoute = useRoute();
 import {useI18n} from 'vue-i18n';
-import {onBeforeUnmount, onMounted, ref, watch} from 'vue';
+import {onBeforeUnmount, onMounted, ref, watch, nextTick} from 'vue';
 const {locale, availableLocales} = useI18n();
 
 const isDropdownOpen = ref(false);
 const currentLocale = ref(locale.value);
+
+// Fokussiert den Button beim Laden der Seite und ermöglicht Tab-Navigation
+const buttonRef = ref(null);
 
 // Funktionen für Dropdown und Lokalisierung
 const toggleDropdown = () => {
@@ -33,15 +36,30 @@ const handleClickOutside = (event) => {
   }
 };
 
+// Den Button zum Sprachwechsel fokussieren, damit er beim Laden der Seite direkt mit Tab erreichbar ist
 onMounted(() => {
   document.addEventListener('click', handleClickOutside);
   window.addEventListener('scroll', closeDropdown);
+
+  // Fokussiert den Sprachwechsel-Button nach dem Laden
+  nextTick(() => {
+    if (buttonRef.value) {
+      buttonRef.value.focus();
+    }
+  });
 });
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside);
   window.removeEventListener('scroll', closeDropdown);
 });
+
+// Für Enter Keydown im Dropdown
+const handleKeydown = (event, locale) => {
+  if (event.key === 'Enter' || event.key === 'Space') {
+    changeLocale(locale);
+  }
+};
 </script>
 
 <template>
@@ -74,32 +92,47 @@ onBeforeUnmount(() => {
             <ChatBubbleLeftIcon class="text-black h-40px" aria-hidden="true"/>
           </RouterLink>
         </li>
+        
+        <!-- Sprachauswahl Dropdown -->
         <li class="nav-item">
           <div class="locale-changer mt-1">
-            <button @click="toggleDropdown" class="locale-btn" aria-haspopup="true" aria-expanded="isDropdownOpen.toString()" aria-label="Change Language">
+            <!-- Der Button zum Öffnen des Sprachmenüs -->
+            <button
+              ref="buttonRef"
+              @click="toggleDropdown"
+              class="locale-btn"
+              aria-haspopup="true"
+              :aria-expanded="isDropdownOpen.toString()"
+              aria-label="Change Language"
+            >
               <LanguageIcon class="text-black h-40px" aria-hidden="true"/>
             </button>
           </div>
-            <!-- Dropdown list -->
-            <div v-if="isDropdownOpen" class="dropdown-list" role="listbox" aria-label="Language Options">
-              <ul>
-                <li
-                  v-for="locale in availableLocales"
-                  :key="locale"
-                  @click="changeLocale(locale)"
-                  class="dropdown-item d-flex flex-row justify-content-start w-100"
-                  role="option"
-                  :aria-selected="locale === currentLocale ? 'true' : 'false'"
-                >
-                  <div class="language-name fs-2 pl-4 ml-2 mr-4" style="width: 64px;">
-                    {{ locale }}
-                  </div>
-                  <img v-if="locale === 'de'" style="height: 24px; width: 32px;" src="./../../../public/flags/Germany.svg" alt="Deutsch">
-                  <img v-else-if="locale === 'en'" style="height: 24px; width: 32px;" src="./../../../public/flags/UK.svg.png" alt="English">
-                </li>
-              </ul>
-            </div>
+
+          <!-- Dropdown-Menü -->
+          <div v-if="isDropdownOpen" class="dropdown-list" role="listbox" aria-label="Language Options" tabindex="0">
+            <ul>
+              <li
+                v-for="locale in availableLocales"
+                :key="locale"
+                @click="changeLocale(locale)"
+                @keydown="handleKeydown($event, locale)"
+                class="dropdown-item d-flex flex-row justify-content-start w-100"
+                role="option"
+                :aria-selected="locale === currentLocale ? 'true' : 'false'"
+                :tabindex="isDropdownOpen ? 0 : -1"
+              >
+                <div class="language-name fs-2 pl-4 ml-2 mr-4" style="width: 64px;">
+                  {{ locale }}
+                </div>
+                <img v-if="locale === 'de'" style="height: 24px; width: 32px;" src="./../../../public/flags/Germany.svg" alt="Deutsch">
+                <img v-else-if="locale === 'en'" style="height: 24px; width: 32px;" src="./../../../public/flags/UK.svg.png" alt="English">
+              </li>
+            </ul>
+          </div>
         </li>
+
+        <!-- Aktuelle Sprache als Flagge anzeigen -->
         <li>
           <div class="text-black fs-2 pl-2">
             <div v-if="locale === 'de'">
