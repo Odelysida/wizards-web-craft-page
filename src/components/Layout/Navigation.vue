@@ -70,7 +70,7 @@ const handleKeydown = (event, locale) => {
           <RouterLink class="d-flex align-items-center" :to="{name: 'home'}" aria-label="Home">
             <img src="../../assets/logo.png" class="text-black h-40px" alt="Baller Los Brettspiele Logo"/>
           </RouterLink>
-          <h1 class="fs-4 w-100 mt-2 heading heading-pre">Baller Los Brettspiele <br></h1>
+          <h1 class="fs-4 w-100 mt-2 heading">Baller Los Brettspiele <br></h1>
         </li>
         <h6 class="fs-9 w-100 sub-heading heading-pre" style="color:grey" aria-hidden="true">
           Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick
@@ -142,9 +142,6 @@ const handleKeydown = (event, locale) => {
               <img class="img-flag" style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="UK Flag" />
             </div>
           </div>
-        </li>
-        <li class="nav-item d-flex">
-          <h1 class="fs-4 w-100 mt-2 heading heading-post">Baller Los Brettspiele <br></h1>
         </li>
         <h6 class="fs-9 w-100 sub-heading heading-post" style="color:grey" aria-hidden="true">
           Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick
