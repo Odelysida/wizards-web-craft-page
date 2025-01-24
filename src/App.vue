@@ -1,9 +1,17 @@
-<script setup>
+<script setup lang="ts">
 </script>
 
 <template>
-  <router-view></router-view>
+  <div class="app-container">
+    <!-- Hauptinhalt der App -->
+    <router-view></router-view>
+  </div>
 </template>
 
-<style scoped>
+<style>
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 </style>
