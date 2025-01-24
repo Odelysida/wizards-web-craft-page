@@ -15,6 +15,7 @@
     "bootstrap": "^5.3.3",
     "dat.gui": "^0.7.9",
     "sass-embedded": "^1.79.3",
+    "slick-carousel": "^1.8.1",
     "three": "^0.172.0",
     "three-obj-mtl-loader": "^1.0.3",
     "three-stdlib": "^2.35.2",
@@ -24,6 +25,7 @@
     "vue-i18n": "^10.0.5",
     "vue-marmoset-viewer": "^4.0.12",
     "vue-router": "^4.4.5",
+    "vue-slick-carousel": "^1.0.6",
     "vue3-carousel": "^0.8.1"
   },
   "devDependencies": {

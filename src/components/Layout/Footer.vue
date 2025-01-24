@@ -25,7 +25,7 @@
         <h2 class="footer-title">Datenschutz</h2>
         <div class="datenschutz-info">
           <p>
-            Datenschutz: Sofern innerhalb dieser Homepage die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (E-Mail-Adressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers ausdrücklich auf freiwilliger Basis.
+            Sofern innerhalb dieser Homepage die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (E-Mail-Adressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers ausdrücklich auf freiwilliger Basis.
           </p>
           <a
             href="https://www.bbs1-lueneburg.de/datenschutz.html"
