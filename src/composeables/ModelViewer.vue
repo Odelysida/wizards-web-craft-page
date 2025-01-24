@@ -199,12 +199,22 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="animation1" style="width: 300px; height: 300px;"></div>
-  <div class="animation2" style="width: 300px; height: 300px;"></div>
+  <div class="animation-container">
+    <div class="animation1"></div>
+    <div class="animation2"></div>
+  </div>
 </template>
 
 <style scoped>
-.animation1, .animation2 {
+.animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Abstand zwischen den Containern */
+}
+
+.animation1,
+.animation2 {
   width: 300px;
   height: 300px;
   position: relative;
@@ -212,3 +222,4 @@ onBeforeUnmount(() => {
   background-color: transparent;
 }
 </style>
+

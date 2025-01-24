@@ -28,39 +28,49 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 
 <template>
   <div class="container-fluid w-100 full-size">
-    <!-- Carousel Section -->
-    <div class="row p-0 m-0">
-      <div class="col-12 p-0 m-0 mt-4">
-        <center>
-          <Carousel
-            :loop="true" 
-            :perPage="1" 
-            :mouseDrag="true" 
-            :touchDrag="true"
-            :items-to-scroll="1"
-            :wrap-around="true"
-            :snap-align="'center'"
-            :transition-duration="300" 
-            class="h-50 w-50">
-            <template #addons>
-              <Navigation />
-            </template>
-            <Slide v-for="(image, index) in images" :key="index">
-              <img :src="image" class="carousel-image" :alt="'Image ' + (index + 1)" />
-            </Slide>
-          </Carousel>
-        </center>
+    <!-- Slider Card -->
+    <div class="content-card">
+      <h3 class="card-title">Image Carousel</h3>
+      <div class="row p-0 m-0">
+        <div class="col-12 p-0 m-0 mt-4">
+          <center>
+            <Carousel
+              :loop="true"
+              :perPage="1"
+              :mouseDrag="true"
+              :touchDrag="true"
+              :items-to-scroll="1"
+              :wrap-around="true"
+              :snap-align="'center'"
+              :transition-duration="300"
+              class="h-50 w-50">
+              <template #addons>
+                <Navigation />
+              </template>
+              <Slide v-for="(image, index) in images" :key="index">
+                <img :src="image" class="carousel-image" :alt="'Image ' + (index + 1)" />
+              </Slide>
+            </Carousel>
+          </center>
+        </div>
       </div>
     </div>
 
-    <!-- 3D Model Viewer -->
-    <div class="row p-0 m-0">
-      <div class="col-12 p-0 m-0 mt-4">
-        <ModelViewer :rotation="rotation" />
+    <!-- 3D Model Viewer Card -->
+    <div class="content-card">
+      <h3 class="card-title">3D Model Viewer</h3>
+      <div class="model-viewer-grid">
+        <!-- Linkes Modell (Ente) -->
+        <div class="model-viewer-border">
+          <ModelViewer :rotation="rotation" class="model-viewer-container" />
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+
+
 
 <style scoped>
 .container-fluid {
@@ -81,5 +91,49 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
   object-fit: contain;
   border-radius: 10px;
 }
+
+/* Hintergrund-Card */
+.content-card {
+  background: #546474; /* Halbtransparenter weißer Hintergrund */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Schatten für Tiefe */
+  border-radius: 15px; /* Abgerundete Ecken */
+  padding: 20px; /* Innenabstand */
+  margin: 20px auto; /* Zentrierung und äußerer Abstand */
+  max-width: 1200px; /* Begrenzte Breite */
+}
+
+/* Kartenabschnitte */
+.card-title {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 3D Model Viewer Grid */
+.model-viewer-grid {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 20px; 
+}
+
+/* Styling für jedes Modell */
+.model-viewer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  max-width: 600px; 
+  margin: auto;
+}
+
+/* Rahmen um den ModelViewer */
+.model-viewer-border {
+  border: 2px solid #000; 
+  border-radius: 10px; 
+  padding: 10px; 
+}
+
 </style>
 

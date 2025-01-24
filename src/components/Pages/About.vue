@@ -54,7 +54,7 @@ const { t } = useI18n();
 
 .responsive-image {
   width: 100%;
-  max-width: 500px;
+  max-width: 900px;
   height: auto;
   object-fit: cover;
   margin: 0 auto;
