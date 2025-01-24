@@ -4,6 +4,7 @@ import {HomeIcon, QuestionMarkCircleIcon, ChatBubbleLeftIcon, LanguageIcon} from
 
 const currentRoute = useRoute();
 import {useI18n} from 'vue-i18n';
+const { t } = useI18n();
 import {onBeforeUnmount, onMounted, ref, watch, nextTick} from 'vue';
 const {locale, availableLocales} = useI18n();
 
@@ -70,10 +71,10 @@ const handleKeydown = (event, locale) => {
           <RouterLink class="d-flex align-items-center" :to="{name: 'home'}" aria-label="Home">
             <img src="../../assets/logo.png" class="text-black h-40px" alt="Baller Los Brettspiele Logo"/>
           </RouterLink>
-          <h1 class="fs-4 w-100 mt-2 heading heading-pre">Baller Los Brettspiele <br></h1>
+          <h1 class="fs-4 w-100 mt-2 heading heading-pre">{{ t('home.title') }} <br></h1>
         </li>
         <h6 class="fs-9 w-100 sub-heading heading-pre" style="color:grey" aria-hidden="true">
-          Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick
+          {{ t('home.subtitle') }}
         </h6>
       </ul>
       <ul class="nav nav-fill d-flex flex-row justify-content-start">

@@ -41,6 +41,21 @@ const i18n = createI18n({
                 message_success: 'Your message has been successfully sent.',
                 message_error: 'Error while processing your message. Please contact this page\'s administrator.'
             },
+            home: {
+                title:'Baller Los Brettspiele',
+                subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick',
+                welcome: 'Welcome to our page! Here we present you with a selection of our products, which you can see in the carousel on the left. \n' +
+                    'Each image showcases a part of the process behind the development of our board game.',
+                link: 'Here',
+                textAfterLink: 'you can find more information about our project and us!',
+            },
+            footer: {
+                representativeTitle: 'Representation',
+                representative: 'Principal Heiko Lüdemann',
+                title: 'Data Protection',
+                info: 'Data Protection: If this website provides the opportunity to enter personal or business data (email addresses, names, addresses), the disclosure of this data by the user is explicitly voluntary.\n',
+                button: 'Privacy Policy',
+            },
             error: {
                 title: 'Error 404! Page not Found!',
                 content: 'The page you requested can\'t be found or is inexistent!'
@@ -67,6 +82,21 @@ const i18n = createI18n({
                 submit: 'Senden',
                 message_success: 'Ihre Nachricht wurde erfolgreich übermittelt.',
                 message_error: 'Fehler bei der Nachrichtenübermittlung. Bitte kontaktieren Sie den Administrator der Website.'
+            },
+            home: {
+                title:'Baller Los Brettspiele',
+                subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick',
+                welcome: 'Willkommen zu unserer Seite! Hier präsentieren wir Ihnen eine Auswahl unserer Produkte, die Sie im Karussell links sehen können. \n' +
+                    'Jedes Bild zeigt einen teil im Prozess unserer Entwicklung eines Brettspiels',
+                link: 'Hier',
+                textAfterLink: 'finden sie weiter Informationen zu unserem Projekt und uns!',
+            },
+            footer: {
+                representativeTitle:'Vertretung',
+                representative:'Oberstudiendirektor Heiko Lüdemann',
+                title:'Datenschutz',
+                info:'Datenschutz: Sofern innerhalb dieser Homepage die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (E-Mail-Adressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers ausdrücklich auf freiwilliger Basis.\n',
+                button:'Datenschutzbestimmungen',
             },
             error: {
                 title: 'Fehler 404, Seite nicht gefunden!',
