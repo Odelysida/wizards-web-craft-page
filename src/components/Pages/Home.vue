@@ -28,11 +28,11 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 
 <template>
   <div class="container-fluid w-100 full-size">
-    <!-- Slider Card -->
+    <!-- Slider Card mit Text daneben -->
     <div class="content-card">
-      <h3 class="card-title">Image Carousel</h3>
       <div class="row p-0 m-0">
-        <div class="col-12 p-0 m-0 mt-4">
+        <!-- Carousel -->
+        <div class="col-md-6 p-0 m-0 mt-4">
           <center>
             <Carousel
               :loop="true"
@@ -43,7 +43,7 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
               :wrap-around="true"
               :snap-align="'center'"
               :transition-duration="300"
-              class="h-50 w-50">
+              class="h-50 w-75">
               <template #addons>
                 <Navigation />
               </template>
@@ -52,6 +52,20 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
               </Slide>
             </Carousel>
           </center>
+        </div>
+
+        <!-- Textbereich -->
+        <div class="col-md-6 d-flex align-items-center">
+          <div class="text-content">
+            <h4>Baller Los!</h4>
+            <p>
+              Willkommen zu unserer Seite! Hier präsentieren wir Ihnen eine Auswahl unserer Produkte, die Sie im Karussell links sehen können. 
+              Jedes Bild zeigt einen teil im Prozess unserer Entwicklung eines Brettspiels
+            </p>
+            <p>
+              <RouterLink to="/about">Hier</RouterLink> finden sie weiter Informationen zu unserem Projekt und uns!
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -68,8 +82,6 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
     </div>
   </div>
 </template>
-
-
 
 
 <style scoped>
@@ -110,6 +122,13 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
   text-align: center;
 }
 
+.text-content {
+  padding: 10px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 /* 3D Model Viewer Grid */
 .model-viewer-grid {
   display: flex;
@@ -145,7 +164,7 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 
   .model-viewer-container {
     flex-wrap: wrap;
-    height:600px; /* Geringere Höhe für kleinere Bildschirme */
+    height: 600px; /* Geringere Höhe für kleinere Bildschirme */
     max-width: 90%; /* Breite auf 90% des Bildschirms begrenzen */
   }
 
