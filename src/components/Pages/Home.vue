@@ -113,9 +113,10 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 /* 3D Model Viewer Grid */
 .model-viewer-grid {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Styling für jedes Modell */
@@ -124,16 +125,50 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
   justify-content: center;
   align-items: center;
   height: 400px;
-  max-width: 600px; 
+  max-width: 600px;
   margin: auto;
 }
 
 /* Rahmen um den ModelViewer */
 .model-viewer-border {
-  border: 2px solid #000; 
-  border-radius: 10px; 
-  padding: 10px; 
+  flex-wrap: wrap;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px;
 }
 
+/* Responsives Design */
+@media (max-width: 1024px) {
+  .model-viewer-grid {
+    gap: 15px; /* Weniger Abstand zwischen Elementen */
+  }
+
+  .model-viewer-container {
+    flex-wrap: wrap;
+    height:600px; /* Geringere Höhe für kleinere Bildschirme */
+    max-width: 90%; /* Breite auf 90% des Bildschirms begrenzen */
+  }
+
+  .model-viewer-border {
+    padding: 8px; /* Weniger Innenabstand */
+  }
+}
+
+@media (max-width: 768px) {
+  .model-viewer-grid {
+    flex-direction: column; /* Vertikales Layout für schmale Bildschirme */
+    gap: 10px;
+  }
+
+  .model-viewer-container {
+    flex-wrap: wrap;
+    height: 600px; /* Noch kleinere Höhe */
+  }
+
+  .model-viewer-border {
+    padding: 5px; /* Minimaler Innenabstand */
+    border-radius: 5px; /* Kleinere Rundung */
+  }
+}
 </style>
 
