@@ -24,9 +24,9 @@ let animationFrameId: number | null = null;
 // Define colors for the duck
 const colors = [
   new THREE.Color('#205900'), // Green
-  new THREE.Color('#833300'), // Orange
+  new THREE.Color('#f15e1b'), // Orange
   new THREE.Color('#210168'), // Blue
-  new THREE.Color('#7d0505')  // Red
+  new THREE.Color('#9c0000')  // Red
 ];
 let currentColorIndex = 0;
 let lastColorChangeTime = 0; // Zeitpunkt der letzten Farbänderung
