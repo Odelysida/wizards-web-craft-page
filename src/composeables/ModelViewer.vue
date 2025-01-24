@@ -18,8 +18,19 @@ const controls2 = shallowRef<OrbitControls | null>(null);
 const isLoading1 = ref(true);
 const isLoading2 = ref(true);
 const error = ref<string | null>(null);
-const autoRotate = ref(true); // Aktivieren der automatischen Rotation
+const autoRotate = ref(true);
 let animationFrameId: number | null = null;
+
+// Define colors for the duck
+const colors = [
+  new THREE.Color('#205900'), // Green
+  new THREE.Color('#822900'), // Orange
+  new THREE.Color('#210168'), // Blue
+  new THREE.Color('#590000')  // Red
+];
+let currentColorIndex = 0;
+let lastColorChangeTime = 0; // Zeitpunkt der letzten Farbänderung
+const colorDuration = 5000; // Dauer pro Farbe in Millisekunden (5 Sekunden)
 
 const init = () => {
   const container1 = document.querySelector('.animation1');
@@ -75,8 +86,7 @@ const init = () => {
     setupControls(controls2.value);
   }
 
-  loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1, 0xFFFFFF);
-  //loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1, 0xFFFF00);
+  loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1, colors[currentColorIndex].getHex());
   loadModel(scene2.value, '/stl/cube.stl', model2, isLoading2, 0xFFFFFF);
 };
 
@@ -114,7 +124,7 @@ const setupControls = (controls: OrbitControls) => {
   controls.dampingFactor = 0.05;
   controls.enableZoom = true;
   controls.zoomSpeed = 1.0;
-  controls.enablePan = false; // Panning wird deaktiviert
+  controls.enablePan = false;
   controls.minDistance = 2;
   controls.maxDistance = 20;
   controls.maxPolarAngle = Math.PI;
@@ -160,6 +170,19 @@ const loadModel = (scene: THREE.Scene, modelPath: string, modelRef: any, loading
   );
 };
 
+const updateDuckColor = (currentTime: number) => {
+  if (!model1.value) return;
+
+  if (currentTime - lastColorChangeTime >= colorDuration) {
+    lastColorChangeTime = currentTime;
+
+    currentColorIndex = (currentColorIndex + 1) % colors.length;
+    const currentColor = colors[currentColorIndex];
+
+    (model1.value.material as THREE.MeshStandardMaterial).color = currentColor;
+  }
+};
+
 const handleResize = () => {
   const container1 = document.querySelector('.animation1');
   const container2 = document.querySelector('.animation2');
@@ -174,10 +197,12 @@ const handleResize = () => {
   renderer2.value.setSize(container2.clientWidth, container2.clientHeight);
 };
 
-const animate = () => {
+const animate = (time: number = 0) => {
   if (!scene1.value || !camera1.value || !renderer1.value || !controls1.value || !scene2.value || !camera2.value || !renderer2.value || !controls2.value) return;
 
   animationFrameId = requestAnimationFrame(animate);
+
+  updateDuckColor(time);
 
   controls1.value.update();
   renderer1.value.render(scene1.value, camera1.value);
@@ -210,7 +235,7 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Abstand zwischen den Containern */
+  gap: 20px;
 }
 
 .animation1,
@@ -222,4 +247,3 @@ onBeforeUnmount(() => {
   background-color: transparent;
 }
 </style>
-
