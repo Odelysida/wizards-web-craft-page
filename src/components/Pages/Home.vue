@@ -9,6 +9,7 @@ import imgUrl3 from "../../assets/3-IMG_2576.jpg";
 import imgUrl4 from "../../assets/4-IMG_2572.jpg";
 import imgUrl5 from "../../assets/5-IMG_2571.jpg";
 import imgUrl6 from "../../assets/besser-image.png";
+import {useI18n} from "vue-i18n";
 
 // Rotation setup for the 3D model
 const rotation = ref({
@@ -22,6 +23,7 @@ function rotate() {
   rotation.value.z -= 0.01;
 }
 rotate();
+const { t } = useI18n();
 
 const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 </script>
@@ -59,11 +61,10 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
           <div class="text-content">
             <h4>Baller Los!</h4>
             <p>
-              Willkommen zu unserer Seite! Hier präsentieren wir Ihnen eine Auswahl unserer Produkte, die Sie im Karussell links sehen können. 
-              Jedes Bild zeigt einen teil im Prozess unserer Entwicklung eines Brettspiels
+              {{ t('home.welcome') }}
             </p>
             <p>
-              <RouterLink to="/about">Hier</RouterLink> finden sie weiter Informationen zu unserem Projekt und uns!
+              <RouterLink to="/about">{{ t('home.link') }}</RouterLink> {{ t('home.textAfterLink')}}
             </p>
           </div>
         </div>
