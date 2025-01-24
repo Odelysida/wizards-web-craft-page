@@ -65,14 +65,14 @@ const handleKeydown = (event, locale) => {
 <template>
   <nav class="navbar">
     <div class="container-xxl mw-100">
-      <ul class="nav justify-content-start w-350px">
+      <ul id="title-pre" class="nav justify-content-start w-350px">
         <li class="nav-item d-flex">
           <RouterLink class="d-flex align-items-center" :to="{name: 'home'}" aria-label="Home">
             <img src="../../assets/logo.png" class="text-black h-40px" alt="Baller Los Brettspiele Logo"/>
           </RouterLink>
-          <h1 class="fs-4 w-100 mt-2 heading">Baller Los Brettspiele <br></h1>
+          <h1 class="fs-4 w-100 mt-2 heading heading-pre">Baller Los Brettspiele <br></h1>
         </li>
-        <h6 class="fs-9 w-100 sub-heading" style="color:grey" aria-hidden="true">
+        <h6 class="fs-9 w-100 sub-heading heading-pre" style="color:grey" aria-hidden="true">
           Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick
         </h6>
       </ul>
@@ -143,6 +143,12 @@ const handleKeydown = (event, locale) => {
             </div>
           </div>
         </li>
+        <li class="nav-item d-flex">
+          <h1 class="fs-4 w-100 mt-2 heading heading-post">Baller Los Brettspiele <br></h1>
+        </li>
+        <h6 class="fs-9 w-100 sub-heading heading-post" style="color:grey" aria-hidden="true">
+          Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick
+        </h6>
       </ul>
     </div>
   </nav>
@@ -164,26 +170,26 @@ const handleKeydown = (event, locale) => {
 }
 
 @media (max-width: 620px) {
-  .heading {
-    display: none;
-  }
   .w-350px {
     width: 100px;
   }*
   img.img-flag {
     vertical-align: bottom;
   }
-  .navbar {
-    height: 65px !important;
-  }
 }
 
 @media (max-width: 700px) {
-  .sub-heading {
+  .heading-pre {
     display: none;
   }
   .w-350px {
     width: 100px;
+  }
+}
+
+@media (min-width: 700px) {
+  .heading-post {
+    display: none;
   }
 }
 
@@ -207,9 +213,9 @@ ul.justify-content-start {
 .locale-btn span {
   margin-left: 8px;
 }
- 
+
 .navbar {
-  height: 100px;
+  height: fit-content;
   position: relative;
 }
 
