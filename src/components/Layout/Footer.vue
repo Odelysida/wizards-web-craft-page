@@ -73,7 +73,7 @@ const { t } = useI18n();
   font-family: "Arial Black", system-ui;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  color: #ff1200;
+  color: #3E5F8A;
 }
 
 .school-info {
@@ -110,7 +110,7 @@ const { t } = useI18n();
 .privacy-button {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background-color: #ff1200;
+  background-color: #3E5F8A;
   color: white;
   text-decoration: none;
   border-radius: 4px;
@@ -120,7 +120,7 @@ const { t } = useI18n();
 }
 
 .privacy-button:hover {
-  background-color: #d10f00;
+  background-color: #0f1d25;
   transform: translateY(-2px);
 }
 

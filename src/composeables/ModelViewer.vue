@@ -21,17 +21,6 @@ const error = ref<string | null>(null);
 const autoRotate = ref(true);
 let animationFrameId: number | null = null;
 
-// Define colors for the duck
-const colors = [
-  new THREE.Color('#205900'), // Green
-  new THREE.Color('#f15e1b'), // Orange
-  new THREE.Color('#210168'), // Blue
-  new THREE.Color('#9c0000')  // Red
-];
-let currentColorIndex = 0;
-let lastColorChangeTime = 0; // Zeitpunkt der letzten Farbänderung
-const colorDuration = 5000; // Dauer pro Farbe in Millisekunden (5 Sekunden)
-
 const init = () => {
   const container1 = document.querySelector('.animation1');
   const container2 = document.querySelector('.animation2');
@@ -86,8 +75,8 @@ const init = () => {
     setupControls(controls2.value);
   }
 
-  loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1, colors[currentColorIndex].getHex());
-  loadModel(scene2.value, '/stl/cube.stl', model2, isLoading2, 0xFFFFFF);
+  loadModel(scene1.value, '/stl/duck.stl', model1, isLoading1);
+  loadModel(scene2.value, '/stl/cube.stl', model2, isLoading2);
 };
 
 const setupLighting = (scene: THREE.Scene) => {
@@ -132,13 +121,13 @@ const setupControls = (controls: OrbitControls) => {
   controls.autoRotateSpeed = 0.5;
 };
 
-const loadModel = (scene: THREE.Scene, modelPath: string, modelRef: any, loadingRef: any, color: number) => {
+const loadModel = (scene: THREE.Scene, modelPath: string, modelRef: any, loadingRef: any) => {
   const loader = new STLLoader();
   loader.load(
     modelPath,
     (geometry) => {
       const material = new THREE.MeshStandardMaterial({
-        color,
+        color: 0xCCCCCC,
         metalness: 0.2,
         roughness: 0.6,
       });
@@ -170,19 +159,6 @@ const loadModel = (scene: THREE.Scene, modelPath: string, modelRef: any, loading
   );
 };
 
-const updateDuckColor = (currentTime: number) => {
-  if (!model1.value) return;
-
-  if (currentTime - lastColorChangeTime >= colorDuration) {
-    lastColorChangeTime = currentTime;
-
-    currentColorIndex = (currentColorIndex + 1) % colors.length;
-    const currentColor = colors[currentColorIndex];
-
-    (model1.value.material as THREE.MeshStandardMaterial).color = currentColor;
-  }
-};
-
 const handleResize = () => {
   const container1 = document.querySelector('.animation1');
   const container2 = document.querySelector('.animation2');
@@ -197,12 +173,10 @@ const handleResize = () => {
   renderer2.value.setSize(container2.clientWidth, container2.clientHeight);
 };
 
-const animate = (time: number = 0) => {
+const animate = () => {
   if (!scene1.value || !camera1.value || !renderer1.value || !controls1.value || !scene2.value || !camera2.value || !renderer2.value || !controls2.value) return;
 
   animationFrameId = requestAnimationFrame(animate);
-
-  updateDuckColor(time);
 
   controls1.value.update();
   renderer1.value.render(scene1.value, camera1.value);
