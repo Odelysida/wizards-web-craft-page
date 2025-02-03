@@ -1,51 +1,61 @@
 <script setup>
 import {useI18n} from 'vue-i18n';
+import {Carousel, Navigation, Slide} from "vue3-carousel";
 const { t } = useI18n();
 </script>
 
 <template>
-  <div class="container bg-white mt-4 p-5 about-container">
-    <div class="text-section">
-      <h1 class="text-black pt-3">
-        {{ t('about.title') }}
-      </h1>
-      <p class="text-black fs-4 pt-2">
-        {{ t('about.introduction') }}
-      </p>
-      <div class="text-black fs-4 pt-2">
-        <ul>
-          <li>
-            {{ t('about.generalInformation') }}
-          </li>
-          <li>
-            {{ t('about.whatWeDo') }}
-          </li>
-        </ul>
+  <div class="container-fluid w-100 full-size">
+    <!-- Slider Card mit Text daneben -->
+    <div class="content-card">
+        <!-- Textbereich -->
+        <div class="d-flex align-items-center">
+          <div class="text-content">
+            <div class="text-section">
+              <h1 class="text-white pt-3">
+                {{ t('about.title') }}
+              </h1>
+              <div class="image-section">
+                <img
+                    src="../../assets/Gruppenfoto.jpg"
+                    alt="Gruppenfoto der Schüler"
+                    class="responsive-image"
+                />
+              </div>
+              <p class="text-white fs-5 pt-2">
+                {{ t('about.introduction') }}
+              </p>
+              <div class="text-white fs-5 pt-2">
+                <ul>
+                  <li>
+                    {{ t('about.generalInformation') }}
+                  </li>
+                  <li>
+                    {{ t('about.whatWeDo') }}
+                  </li>
+                </ul>
+              </div>
+              <p class="text-white fs-5 pt-2">
+                {{ t('about.bigText') }}
+              </p>
+              <p class="text-white fs-5 pt-2">
+                {{ t('about.pros') }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="text-black fs-4 pt-2">
-        {{ t('about.bigText') }}
-      </p>
-      <p class="text-black fs-4 pt-2">
-        {{ t('about.pros') }}
-      </p>
     </div>
-    <div class="image-section">
-      <img
-          src="../../assets/Gruppenfoto.jpg"
-          alt="Gruppenfoto der Schüler"
-          class="responsive-image"
-      />
-    </div>
-  </div>
 </template>
 
 <style scoped>
-.container {
-  display: block;
+
+h1{
+  text-shadow: 3px 4px 5px black;
 }
 
-.text-section {
-  margin-bottom: 20px;
+.container {
+  display: block;
 }
 
 .image-section {
@@ -65,5 +75,35 @@ const { t } = useI18n();
   .responsive-image {
     max-width: 100%;
   }
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+/* Hintergrund-Card */
+.content-card {
+  position: relative;
+  top: 100px;
+  background: #546474; /* Halbtransparenter weißer Hintergrund */
+  box-shadow: 0px 1px 3px 3px #1a232d; /* Schatten */
+  border-radius: 15px; /* Abgerundete Ecken */
+  padding: 20px; /* Innenabstand */
+  margin: 20px auto; /* Zentrierung und äußerer Abstand */
+  max-width: 1200px; /* Begrenzte Breite */
+}
+
+.text-content {
+  padding: 10px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .content-card{
+    top: 150px;
+}
 }
 </style>

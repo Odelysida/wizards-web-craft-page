@@ -34,17 +34,20 @@ const i18n = createI18n({
             },
             contact: {
                 title: 'Contact',
-                nameInput: 'Your name',
-                emailInput: 'Your E-Mail',
-                messageInput: 'Your message',
+                nameInput: 'name*',
+                emailInput: 'e-mail*',
+                messageInput: 'message*',
                 submit: 'Send',
                 message_success: 'Your message has been successfully sent.',
-                message_error: 'Error while processing your message. Please contact this page\'s administrator.'
+                message_error: 'Error while processing your message. Please contact this page\'s administrator.',
+                duty: 'Fields marked with * are required!',
+                reference:'subject',
+                agreeDSGVO:'I have read and agree to the <a href="https://www.bbs1-lueneburg.de/datenschutz.html">Privacy Policy</a>'
             },
             home: {
                 title:'Baller Los Brettspiele',
                 subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick',
-                welcome: 'Welcome to our page! Here we present you with a selection of our products, which you can see in the carousel on the left. \n' +
+                welcome: 'Welcome to our page! Here we present you  our product. \n' +
                     'Each image showcases a part of the process behind the development of our board game.',
                 link: 'Here',
                 textAfterLink: 'you can find more information about our project and us!',
@@ -76,20 +79,50 @@ const i18n = createI18n({
             },
             contact: {
                 title: 'Kontaktformular',
-                nameInput: 'Ihr Name',
-                emailInput: 'Ihre E-Mail',
-                messageInput: 'Ihre Nachricht',
+                nameInput: 'Name*',
+                emailInput: 'E-Mail*',
+                messageInput: 'Nachricht*',
                 submit: 'Senden',
                 message_success: 'Ihre Nachricht wurde erfolgreich übermittelt.',
-                message_error: 'Fehler bei der Nachrichtenübermittlung. Bitte kontaktieren Sie den Administrator der Website.'
+                message_error: 'Fehler bei der Nachrichtenübermittlung. Bitte kontaktieren Sie den Administrator der Website.',
+                duty: 'Mit * markierte Felder sind Pflichtfelder!',
+                reference:'Betreff',
+                agreeDSGVO:'Ich habe die <a href="https://www.bbs1-lueneburg.de/datenschutz.html">Datenschutzerkärung</a> gelesen und bin einverstanden'
             },
             home: {
                 title:'Baller Los Brettspiele',
                 subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick',
-                welcome: 'Willkommen zu unserer Seite! Hier präsentieren wir Ihnen eine Auswahl unserer Produkte, die Sie im Karussell links sehen können. \n' +
+                welcome: 'Willkommen zu unserer Seite! Hier präsentieren wir Ihnen unser Produkt. \n' +
                     'Jedes Bild zeigt einen teil im Prozess unserer Entwicklung eines Brettspiels',
                 link: 'Hier',
                 textAfterLink: 'finden sie weiter Informationen zu unserem Projekt und uns!',
+                rulesTitle: 'Regel',
+                rulesText: 'Spielanleitung für "Maximal sechs"\n' +
+                    'Spieleranzahl: 2 bis 6 Spieler\n' +
+                    'Alter: 12 bis 99 Jahre\n' +
+                    'Spieldauer: 10 bis 15 Minuten\n' +
+                    '\n' +
+                    'Spielmaterialien:\n' +
+                    'Spielbrett mit Feldern (Fragefelder mit Fragezeichen, Ereignisfelder mit Ausrufezeichen)\n' +
+                    'Spielfiguren für jeden Spieler\n' +
+                    'Fragen- und Ereigniskarten\n' +
+                    'Würfel\n' +
+                    'Spielvorbereitung\n' +
+                    'Die Spieler wählen eine Spielfigur und stellen sie auf das Startfeld der Plattform.\n' +
+                    'Die Karten für Fragen und Ereignisse werden gemischt und bereitgelegt.',
+                sequenceTitle:'Spielablauf',
+                sequenceText:'Spielablauf\n' +
+                    'Die Spieler würfeln reihum und ziehen ihre Spielfigur entsprechend der Augenzahl des Würfels.\n' +
+                    'Landet ein Spieler auf einem Fragefeld, zieht er eine Fragekarte und muss die Frage beantworten.\n' +
+                    'Bei richtiger Antwort darf der Spieler ggf. ein paar Felder vor ziehen.\n' +
+                    'Bei falscher Antwort muss der Spieler ggf. zurück ziehen.\n' +
+                    'Landet ein Spieler auf einem Ereignisfeld, zieht er eine Ereigniskarte und muss die Aufgabe erfüllen.\n' +
+                    'Wird die Aufgabe erfolgreich erledigt, darf der Spieler ggf. ein paar Felder weiterziehen.\n' +
+                    'Bei Nichterfüllung muss der Spieler ebenfalls zurück ziehen.\n' +
+                    'Das Spiel wird fortgesetzt, bis ein Spieler das letzte Feld des Spielbretts erreicht.\n' +
+                    'Ziel des Spieles\n' +
+                    'Der Spieler, der als erster das letzte Feld erreicht, gewinnt das Spiel und hat somit die anderen Spieler überlistet.',
+                footerText:'Viel Spaß beim Spielen!'
             },
             footer: {
                 representativeTitle:'Vertretung',

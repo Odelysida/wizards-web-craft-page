@@ -71,9 +71,9 @@ const handleKeydown = (event, locale) => {
           <RouterLink class="d-flex align-items-center" :to="{name: 'home'}" aria-label="Home">
             <img src="../../assets/logo.png" class="text-black h-40px" alt="Baller Los Brettspiele Logo"/>
           </RouterLink>
-          <h1 class="fs-4 w-100 mt-2 heading heading-pre">{{ t('home.title') }} <br></h1>
+          <h1 class="fs-4 w-100 mt-2 heading heading-pre" style="color:white">{{ t('home.title') }} <br></h1>
         </li>
-        <h6 class="fs-9 w-100 sub-heading heading-pre" style="color:grey" aria-hidden="true">
+        <h6 class="fs-9 w-100 sub-heading" style="color:white" aria-hidden="true">
           {{ t('home.subtitle') }}
         </h6>
       </ul>
@@ -106,7 +106,15 @@ const handleKeydown = (event, locale) => {
               :aria-expanded="isDropdownOpen.toString()"
               aria-label="Change Language"
             >
-              <LanguageIcon class="text-black h-40px" aria-hidden="true"/>
+              <!-- <LanguageIcon class="text-black h-40px" aria-hidden="true"/> -->
+              <div class="nav-link">
+                <div v-if="locale === 'de'">
+                  <img class="img-flag" style="height: 24px; width: 36px;" src="./../../../public/flags/Germany.svg" alt="Germany Flag" />
+                </div>
+                <div v-if="locale === 'en'">
+                  <img class="img-flag" style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="UK Flag" />
+                </div>
+              </div>
             </button>
           </div>
 
@@ -133,7 +141,7 @@ const handleKeydown = (event, locale) => {
           </div>
         </li>
 
-        <!-- Aktuelle Sprache als Flagge anzeigen -->
+        <!-- Aktuelle Sprache als Flagge anzeigen
         <li>
           <div class="text-black fs-2 pl-2">
             <div v-if="locale === 'de'">
@@ -143,19 +151,28 @@ const handleKeydown = (event, locale) => {
               <img class="img-flag" style="height: 24px; width: 36px;" src="./../../../public/flags/UK.svg.png" alt="UK Flag" />
             </div>
           </div>
-        </li>
-        <li class="nav-item d-flex">
-          <h1 class="fs-4 w-100 mt-2 heading heading-post">Baller Los Brettspiele <br></h1>
-        </li>
-        <h6 class="fs-9 w-100 sub-heading heading-post" style="color:grey" aria-hidden="true">
-          Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick
-        </h6>
+        </li> -->
       </ul>
     </div>
   </nav>
 </template>
 
 <style scoped lang="scss">
+
+.heading{
+  text-shadow: 2px 2px 5px black;
+}
+
+.sub-heading{
+  text-shadow: 2px 2px 5px black;
+}
+
+@media (max-width: 620px) {
+  h6{
+    font-size: 15px;
+  }
+}
+
 .h-40px {
   height: 40px;
 }
@@ -173,26 +190,12 @@ const handleKeydown = (event, locale) => {
 @media (max-width: 620px) {
   .w-350px {
     width: 100px;
-  }*
+  }
   img.img-flag {
     vertical-align: bottom;
   }
 }
 
-@media (max-width: 700px) {
-  .heading-pre {
-    display: none;
-  }
-  .w-350px {
-    width: 100px;
-  }
-}
-
-@media (min-width: 700px) {
-  .heading-post {
-    display: none;
-  }
-}
 
 ul.justify-content-start {
     width: fit-content;
@@ -217,17 +220,19 @@ ul.justify-content-start {
 
 .navbar {
   height: fit-content;
-  position: relative;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background-color:#3E5F8A;
+  box-shadow: 0px 3px 3px #324a68;
 }
 
 .dropdown-list {
-  position: fixed;
-  top: 92px;
-  right: 16px;
+  position: relative;
   min-width: 150px;
   max-width: calc(100% - 32px);
   z-index: 1000;
-  padding: 8px 0;
+  padding: 0;
   overflow: hidden;
 }
 

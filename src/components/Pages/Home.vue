@@ -10,6 +10,7 @@ import imgUrl4 from "../../assets/4-IMG_2572.jpg";
 import imgUrl5 from "../../assets/5-IMG_2571.jpg";
 import imgUrl6 from "../../assets/besser-image.png";
 import {useI18n} from "vue-i18n";
+import Swiper from "../../composeables/Swiper.vue";
 
 // Rotation setup for the 3D model
 const rotation = ref({
@@ -25,7 +26,7 @@ function rotate() {
 rotate();
 const { t } = useI18n();
 
-const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
+const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 </script>
 
 <template>
@@ -33,30 +34,12 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
     <!-- Slider Card mit Text daneben -->
     <div class="content-card">
       <div class="row p-0 m-0">
-        <!-- Carousel -->
         <div class="col-md-6 p-0 m-0 mt-4">
-          <center>
-            <Carousel
-              :loop="true"
-              :perPage="1"
-              :mouseDrag="true"
-              :touchDrag="true"
-              :items-to-scroll="1"
-              :wrap-around="true"
-              :snap-align="'center'"
-              :transition-duration="300"
-              class="h-50 w-75">
-              <template #addons>
-                <Navigation />
-              </template>
-              <Slide v-for="(image, index) in images" :key="index">
-                <img :src="image" class="carousel-image" :alt="'Image ' + (index + 1)" />
-              </Slide>
-            </Carousel>
-          </center>
+       <Swiper></Swiper>
         </div>
 
         <!-- Textbereich -->
+        <!-- TODO Text zum swiper anpassen -->
         <div class="col-md-6 d-flex align-items-center">
           <div class="text-content">
             <h4>Baller Los!</h4>
@@ -71,9 +54,40 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
       </div>
     </div>
 
+    <!-- Spielbrett mit Regeln -->
+    <div class="content-card">
+      <div class="row p-0 m-0">
+        <!-- Carousel -->
+        <div class="col-md-6 p-0 m-0 mt-4">
+          <img class="rules-image" src="../../assets/Spielbrett_und_Figuren.jpeg" alt="Spielbrett_und_Figuren"/>
+        </div>
+
+        <!-- Textbereich -->
+        <div class="col-md-6 d-flex align-items-center">
+          <div class="text-content">
+            <h4>
+              {{ t('home.rulesTitle') }}
+            </h4>
+            <p>
+              {{ t('home.rulesText') }}
+            </p>
+            <h4>
+              {{ t('home.sequenceTitle') }}
+            </h4>
+            <p>
+              {{ t('home.sequenceText') }}
+            </p>
+            <p>
+              {{ t('home.footerText') }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- 3D Model Viewer Card -->
     <div class="content-card">
-      <h3 class="card-title">3D Model Viewer</h3>
+      <h4 class="card-title">3D Model Viewer</h4>
       <div class="model-viewer-grid">
         <!-- Linkes Modell (Ente) -->
         <div class="model-viewer-border">
@@ -86,9 +100,30 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 
 
 <style scoped>
+
+.collage{
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+h4{
+  text-shadow: 1px 1px 5px black;
+}
+
 .container-fluid {
   padding: 0;
   margin: 0;
+}
+
+.swiper {
+  max-width: 400px;
+  height: 500px;
+  margin: auto;
+  border-radius: 10px;
+  object-fit: contain;
 }
 
 .carousel {
@@ -105,20 +140,30 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
   border-radius: 10px;
 }
 
+.rules-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
 /* Hintergrund-Card */
 .content-card {
+  position: relative;
+  top: 100px;
   background: #546474; /* Halbtransparenter weißer Hintergrund */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Schatten für Tiefe */
+  box-shadow: 0px 1px 3px 3px #1a232d; /* Schatten */
   border-radius: 15px; /* Abgerundete Ecken */
   padding: 20px; /* Innenabstand */
   margin: 20px auto; /* Zentrierung und äußerer Abstand */
-  max-width: 1200px; /* Begrenzte Breite */
+  max-width: 1200px; /* breite */
 }
 
 /* Kartenabschnitte */
 .card-title {
   font-size: 1.5rem;
-  color: #000;
+  color: #ffffff;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -152,13 +197,13 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 /* Rahmen um den ModelViewer */
 .model-viewer-border {
   flex-wrap: wrap;
-  border: 2px solid #000;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   padding: 10px;
 }
 
 /* Responsives Design */
-@media (max-width: 1024px) {
+@media (max-width: 1034px) {
   .model-viewer-grid {
     gap: 15px; /* Weniger Abstand zwischen Elementen */
   }
@@ -171,6 +216,10 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 
   .model-viewer-border {
     padding: 8px; /* Weniger Innenabstand */
+  }
+
+  .content-card{
+    top: 150px;
   }
 }
 
@@ -188,6 +237,16 @@ const images = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
   .model-viewer-border {
     padding: 5px; /* Minimaler Innenabstand */
     border-radius: 5px; /* Kleinere Rundung */
+  }
+
+  .rules-image{
+    height: 350px;
+    width: 350px;
+  }
+
+  .collage{
+    height: 350px;
+    width: 350px;
   }
 }
 </style>

@@ -8,7 +8,7 @@ const { t } = useI18n();
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section">
-        <h2 class="footer-title">Impressum</h2>
+        <h1 class="footer-title">Impressum</h1>
         <div class="school-info">
           <p class="school-name">BBS I Lüneburg</p>
           <p class="school-address">
@@ -25,10 +25,10 @@ const { t } = useI18n();
       </div>
 
       <div class="footer-section">
-        <h2 class="footer-title">{{ t('footer.title') }}</h2>
+        <h1 class="footer-title">{{ t('footer.title') }}</h1>
         <div class="datenschutz-info">
           <p>
-            Datenschutz: Sofern innerhalb dieser Homepage die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (E-Mail-Adressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers ausdrücklich auf freiwilliger Basis.
+            {{ t('footer.info') }}
           </p>
           <a
             href="https://www.bbs1-lueneburg.de/datenschutz.html"
@@ -46,6 +46,7 @@ const { t } = useI18n();
 
 <style scoped>
 .footer {
+  top: 100px;
   background-color: #182d3a;
   color: white;
   padding: 2rem 0;
@@ -98,11 +99,6 @@ const { t } = useI18n();
   line-height: 1.5;
 }
 
-.privacy-info {
-  font-family: Arial, system-ui;
-  line-height: 1.6;
-}
-
 .privacy-info p {
   margin-bottom: 1.5rem;
 }
@@ -122,6 +118,12 @@ const { t } = useI18n();
 .privacy-button:hover {
   background-color: #0f1d25;
   transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    top: 150px;
+  }
 }
 
 @media (max-width: 768px) {

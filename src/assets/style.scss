@@ -4,6 +4,10 @@ $body-bg: #3E5F8A;
 $secondary-bg: #182d3a;
 $primary-color: #ff1200;
 
+body {
+  background-color: $secondary-bg;
+}
+
 h1{
   font-family: "Arial Black", system-ui;
 }
@@ -13,10 +17,14 @@ p, ul{
 
 }
 
-body {
-  background-color: $secondary-bg;
-
+svg{
+  stroke: #ffffff;
 }
+
+/*
+
+
+
 
 .navbar{
  background-color: $white;
@@ -40,3 +48,4 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+*/
