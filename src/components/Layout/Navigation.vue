@@ -43,11 +43,6 @@ onMounted(() => {
   window.addEventListener('scroll', closeDropdown);
 
   // Fokussiert den Sprachwechsel-Button nach dem Laden
-  nextTick(() => {
-    if (buttonRef.value) {
-      buttonRef.value.focus();
-    }
-  });
 });
 
 onBeforeUnmount(() => {
