@@ -43,9 +43,8 @@ const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
         <div class="col-md-6 d-flex align-items-center">
           <div class="text-content">
             <h4>Baller Los!</h4>
-            <p>
-              {{ t('home.welcome') }}
-            </p>
+            <span v-html="t('home.welcome')">
+            </span>
             <p>
               <RouterLink to="/about">{{ t('home.link') }}</RouterLink> {{ t('home.textAfterLink')}}
             </p>
@@ -65,22 +64,19 @@ const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
         <!-- Textbereich -->
         <div class="col-md-6 d-flex align-items-center">
           <div class="text-content">
-            <h4>
-              {{ t('home.rulesTitle') }}
+            <h4 v-html="t('home.rulesTitle')">
             </h4>
-            <p>
-              {{ t('home.rulesText') }}
-            </p>
-            <h4>
-              {{ t('home.sequenceTitle') }}
-            </h4>
-            <p>
-              {{ t('home.sequenceText') }}
-            </p>
-            <p>
-              {{ t('home.footerText') }}
-            </p>
-          </div>
+            <span v-html="t('home.rulesText')">
+            </span>
+            </div>
+        </div>
+        <div class="sequenceText">
+          <h5 v-html="t('home.sequenceTitle')">
+          </h5>
+          <span v-html="t('home.sequenceText')">
+            </span>
+          <span v-html="t('home.footerText')">
+            </span>
         </div>
       </div>
     </div>
@@ -110,6 +106,11 @@ const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 }
 
 h4{
+  text-shadow: 6px 1px 8px black
+}
+
+h5{
+  font-size: 1.25rem;
   text-shadow: 1px 1px 5px black;
 }
 
