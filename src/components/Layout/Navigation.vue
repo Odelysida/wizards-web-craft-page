@@ -41,8 +41,6 @@ const handleClickOutside = (event) => {
 onMounted(() => {
   document.addEventListener('click', handleClickOutside);
   window.addEventListener('scroll', closeDropdown);
-
-  // Fokussiert den Sprachwechsel-Button nach dem Laden
 });
 
 onBeforeUnmount(() => {
@@ -115,20 +113,21 @@ const handleKeydown = (event, locale) => {
 
           <!-- Dropdown-Menü -->
           <div v-if="isDropdownOpen" class="dropdown-list" role="listbox" aria-label="Language Options" tabindex="0">
-            <ul>
+            <ul class="dropdown-list-ul">
               <li
                 v-for="locale in availableLocales"
                 :key="locale"
                 @click="changeLocale(locale)"
                 @keydown="handleKeydown($event, locale)"
-                class="dropdown-item d-flex flex-row justify-content-start w-100"
+                
+                class="dropdown-item"
                 role="option"
                 :aria-selected="locale === currentLocale ? 'true' : 'false'"
                 :tabindex="isDropdownOpen ? 0 : -1"
               >
-                <div class="language-name fs-2 pl-4 ml-2 mr-4" style="width: 64px;">
+                <!-- <div class="language-name fs-2 pl-4 ml-2 mr-4" style="width: 64px;">
                   {{ locale }}
-                </div>
+                </div> -->
                 <img v-if="locale === 'de'" style="height: 24px; width: 32px;" src="./../../../public/flags/Germany.svg" alt="Deutsch">
                 <img v-else-if="locale === 'en'" style="height: 24px; width: 32px;" src="./../../../public/flags/UK.svg.png" alt="English">
               </li>
@@ -223,20 +222,34 @@ ul.justify-content-start {
 }
 
 .dropdown-list {
+  // position: relative;
+  // // min-width: 150px;
+  // max-width: calc(100% - 32px);
+  // z-index: 1000;
+  // padding: 0;
+  // overflow: hidden;
+
   position: relative;
-  min-width: 150px;
-  max-width: calc(100% - 32px);
-  z-index: 1000;
-  padding: 0;
-  overflow: hidden;
+    right: 26px;
+    z-index: 1000;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: end;
 }
 
+.dropdown-list-ul {
+  display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5px;
+}
 .dropdown-item {
   cursor: pointer;
   transition: background 0.3s;
   font-size: 16px;
   width: 100%;
-  background: white;
 }
 
 .dropdown-item:hover {
