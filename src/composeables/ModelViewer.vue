@@ -277,7 +277,7 @@ onBeforeUnmount(() => {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.1s;
 }
 
 .wireframe-toggle:hover {
