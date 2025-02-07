@@ -229,22 +229,7 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<template>
-  <div class="animation-container">
-    <div class="model-container">
-      <div class="animation1"></div>
-      <button @click="toggleWireframe(1)" class="wireframe-toggle">
-        {{ wireframe1 ? 'Disable' : 'Enable' }} Wireframe
-      </button>
-    </div>
-    <div class="model-container">
-      <div class="animation2"></div>
-      <button @click="toggleWireframe(2)" class="wireframe-toggle">
-        {{ wireframe2 ? 'Disable' : 'Enable' }} Wireframe
-      </button>
-    </div>
-  </div>
-</template>
+
 
 <style scoped>
 .animation-container {
