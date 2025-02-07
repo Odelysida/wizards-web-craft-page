@@ -19,7 +19,39 @@ const isLoading1 = ref(true);
 const isLoading2 = ref(true);
 const error = ref<string | null>(null);
 const autoRotate = ref(true);
+const wireframe1 = ref(false);
+const wireframe2 = ref(false);
 let animationFrameId: number | null = null;
+
+const toggleWireframe = (modelNumber: number) => {
+  if (modelNumber === 1 && model1.value) {
+    wireframe1.value = !wireframe1.value;
+    const material = model1.value.material as THREE.MeshStandardMaterial;
+    material.wireframe = wireframe1.value;
+    if (wireframe1.value) {
+      material.wireframeLinewidth = 2;  // Stärkere Drahtgitterlinie
+      material.wireframeLinecap = 'round';  // Runde Linienenden
+      material.wireframeLinejoin = 'round';
+      material.color.set(0xffffff);  // Helles Weiß für das Drahtgitter
+    } else {
+      material.wireframeLinewidth = 1;
+      material.color.set(0xCCCCCC);  // Zurück zur Standardfarbe
+    }
+  } else if (modelNumber === 2 && model2.value) {
+    wireframe2.value = !wireframe2.value;
+    const material = model2.value.material as THREE.MeshStandardMaterial;
+    material.wireframe = wireframe2.value;
+    if (wireframe2.value) {
+      material.wireframeLinewidth = 2;  // Stärkere Drahtgitterlinie
+      material.wireframeLinecap = 'round';  // Runde Linienenden
+      material.wireframeLinejoin = 'round';
+      material.color.set(0xffffff);  // Helles Weiß für das Drahtgitter
+    } else {
+      material.wireframeLinewidth = 1;
+      material.color.set(0xCCCCCC);  // Zurück zur Standardfarbe
+    }
+  }
+};
 
 const init = () => {
   const container1 = document.querySelector('.animation1');
@@ -199,8 +231,18 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="animation-container">
-    <div class="animation1"></div>
-    <div class="animation2"></div>
+    <div class="model-container">
+      <div class="animation1"></div>
+      <button @click="toggleWireframe(1)" class="wireframe-toggle">
+        {{ wireframe1 ? 'Disable' : 'Enable' }} Wireframe
+      </button>
+    </div>
+    <div class="model-container">
+      <div class="animation2"></div>
+      <button @click="toggleWireframe(2)" class="wireframe-toggle">
+        {{ wireframe2 ? 'Disable' : 'Enable' }} Wireframe
+      </button>
+    </div>
   </div>
 </template>
 
@@ -212,6 +254,13 @@ onBeforeUnmount(() => {
   gap: 20px;
 }
 
+.model-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .animation1,
 .animation2 {
   width: 300px;
@@ -219,5 +268,19 @@ onBeforeUnmount(() => {
   position: relative;
   overflow: hidden;
   background-color: transparent;
+}
+
+.wireframe-toggle {
+  padding: 8px 16px;
+  background-color: #4a5568;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.wireframe-toggle:hover {
+  background-color: #2d3748;
 }
 </style>
