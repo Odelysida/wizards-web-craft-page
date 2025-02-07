@@ -234,13 +234,13 @@ onBeforeUnmount(() => {
     <div class="model-container">
       <div class="animation1"></div>
       <button @click="toggleWireframe(1)" class="wireframe-toggle">
-        {{ wireframe1 ? 'Disable' : 'Enable' }} Wireframe
+        {{ wireframe1 ? 'Wireframe deaktivieren' : 'Wireframe aktivieren' }}
       </button>
     </div>
     <div class="model-container">
       <div class="animation2"></div>
       <button @click="toggleWireframe(2)" class="wireframe-toggle">
-        {{ wireframe2 ? 'Disable' : 'Enable' }} Wireframe
+        {{ wireframe2 ? 'Wireframe deaktivieren' : 'Wireframe aktivieren' }}
       </button>
     </div>
   </div>
