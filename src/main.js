@@ -14,23 +14,23 @@ const i18n = createI18n({
         en: {
             about: {
                 title: 'About us',
-                introduction: 'Hi, we are the HA24B and this is our student company “Baller los”,<br>' +
+                introduction: 'Hi, we are the HA24B and this is our student company “Baller los”, ' +
                     'which means to go full steam ahead - and that\'s what we do.',
-                generalInformation: 'We are 24 students between the ages of 15 and 18.<br>' +
-                    'We founded this student company as part of the one-year vocational school for business at BBS I Lüneburg.',
-                whatWeDo: 'We produce our own game and want to use this game to raise awareness of<br>' +
-                    'environmental protection, especially with regard to water.',
-                bigText: 'It is therefore a matter of course that we produce our game as<br>' +
-                    'environmentally friendly and high-quality as possible. We use<br>' +
-                    'a 3D printer with recyclable and even recycled filament to be able to<br>' +
-                    'produce our figures ourselves.',
-                pros: 'The other materials<br>' +
-                    'such as the game board and packaging are recyclable or made from<br>' +
-                    'recycled material. We are also investigating the pollution of the<br>' +
-                    'Ilmenau (this river flows through Lüneburg) by collecting and counting plastic waste.<br>' +
-                    'and counting it. For this website we cooperate with the<br>' +
-                    'Lüneburg IT company “webnetz” and the trainees for the<br>' +
-                    '3rd year IT specialists from the IT22B class at our school.',
+                generalInformation: 'We are 24 students between the ages of 15 and 18.<br> ' +
+                    'We founded this student company as part of the one-year vocational school for business at BBS I Lüneburg. ',
+                whatWeDo: 'We produce our own game and want to use this game to raise awareness of<br> ' +
+                    'environmental protection, especially with regard to water. ',
+                bigText: 'It is therefore a matter of course that we produce our game as ' +
+                    'environmentally friendly and high-quality as possible. <br> ' +
+                    'We use a 3D printer with recyclable and even recycled filament to be able to ' +
+                    'produce our figures ourselves. <br>'+
+                    'The other materials ' +
+                    'such as the game board and packaging are recyclable or made from recycled material. <br>' +
+                    'We are also investigating the pollution of the ' +
+                    'Ilmenau (this river flows through Lüneburg) <br> by collecting and counting plastic waste. <br>' +
+                    'For this website we cooperate with the ' +
+                    'Lüneburg IT company “webnetz” and the trainees for the <br> ' +
+                    '3rd year IT specialists from the IT22B class at our school. ',
             },
             contact: {
                 title: 'Contact',
@@ -52,12 +52,12 @@ const i18n = createI18n({
                 link: 'Here',
                 textAfterLink: 'you can find more information about our project and us!',
                 rulesTitle: 'Rules',
-                rulesText: 'Game instructions for "Maximum Six"<br>' +
+                rulesText: '<h5>Game instructions for "Maximum Six"</h5>' +
                     'Number of players: 2 to 6 players<br>' +
                     'Age: 12 to 99 years<br>' +
                     'Game duration: 10 to 15 minutes<br>' +
                     '<br>' +
-                    'Game materials:<br>' +
+                    '<h5>Game materials:</h5>' +
                     '<ul>' +
                     '<li>Game board with spaces:</li>' +
                     '<ul>' +
@@ -68,22 +68,26 @@ const i18n = createI18n({
                     '<li>Question and event cards</li>' +
                     '<li>Dice</li>' +
                     '</ul>' +
-                    'Game setup<br>' +
+                    '<h5>Game setup</h5>' +
                     '   1. Players choose a playing piece and place it on the start space of the board.<br>' +
                     '   2. The question and event cards are shuffled and set aside.<br>',
                 sequenceTitle:'Game sequence',
-                sequenceText:'Game sequence<br>' +
-                    'Players take turns rolling the dice and moving their playing piece according to the number rolled.<br>' +
-                    'If a player lands on a question space, they draw a question card and must answer the question.<br>' +
-                    'If answered correctly, the player may move forward a few spaces.<br>' +
-                    'If answered incorrectly, the player may have to move back.<br>' +
-                    'If a player lands on an event space, they draw an event card and must complete the task.<br>' +
-                    'If the task is successfully completed, the player may move forward a few spaces.<br>' +
-                    'If the task is not completed, the player must move back.<br>' +
-                    'The game continues until a player reaches the final space on the board.<br>' +
-                    'Objective of the game<br>' +
+                sequenceText:
+                    ' 1. Players take turns rolling the dice and moving their playing piece according to the number rolled.<br>' +
+                    ' 2. If a player lands on a question space, they draw a question card and must answer the question.<br>' +
+                    '<ul>' +
+                    '<li> If answered correctly, the player may move forward a few spaces.</li>' +
+                    '<li> If answered incorrectly, the player may have to move back.</li>' +
+                    '</ul>'+
+                    ' 3. If a player lands on an event space, they draw an event card and must complete the task.<br>' +
+                    '<ul>' +
+                    '<li>If the task is successfully completed, the player may move forward a few spaces.</li>' +
+                    '<li>If the task is not completed, the player must move back.</li>' +
+                    '</ul>'+
+                    ' 4. The game continues until a player reaches the final space on the board.<br>' +
+                    '<h5>Objective of the game</h5>' +
                     'The player who reaches the final space first wins the game and outsmarts the other players.<br>',
-                footerText:'Have fun playing!',
+                footerText:'<h6>Have fun playing!</h6>',
             },
             footer: {
                 representativeTitle: 'Representation',
@@ -105,8 +109,8 @@ const i18n = createI18n({
                     'Diese Schülerfirma haben wir im Rahmen der einjährigen Berufsfachschule Wirtschaft an der BBS I Lüneburg gegründet.',
                 whatWeDo: 'Wir stellen ein eigenes Spiel her und wollen mit diesem Spiel auf den Umweltschutz, besonders bei den Gewässern, aufmerksam machen.',
                 bigText: 'Daher ist es selbstverständlich, dass wir unser Spiel so umweltfreundlich und hochwertig wie möglich produzieren. <br>' +
-                    'Wir nutzen einen 3D-Drucker mit recyclefähigem und sogar Recycling-Filament, um unsere Figuren selbst herstellen zu können.',
-                pros: 'Auch die anderen Materialien wie Spielbrett und Verpackung sind recyclefähig oder bestehen aus recyclingmaterial.<br> ' +
+                    'Wir nutzen einen 3D-Drucker mit recyclefähigem und sogar Recycling-Filament, um unsere Figuren selbst herstellen zu können. <br>' +
+                    'Auch die anderen Materialien wie Spielbrett und Verpackung sind recyclefähig oder bestehen aus recyclingmaterial.<br> ' +
                     'Zusätzlich untersuchen wir die Verschmutzung der Ilmenau (dieser Fluss fließt durch Lüneburg), indem wir Plastikmüll einsammeln und zählen. <br>' +
                     'Für diese Website kooperieren wir mit dem Lüneburger IT-Unternehmen „webnetz“ und den Auszubildenden zum Fachinformatiker im 3. Lehrjahr aus der Klasse IT22B von unserer Schule.',
             },

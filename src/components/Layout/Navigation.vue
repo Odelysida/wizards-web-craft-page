@@ -25,6 +25,14 @@ const changeLocale = (newLocale) => {
   isDropdownOpen.value = false;
 };
 
+const changeLocale2 = () => {
+  if(locale.value === "de"){
+    locale.value = "en";
+  }else if(locale.value === "en"){
+    locale.value = "de";
+  }
+};
+
 const closeDropdown = () => {
   isDropdownOpen.value = false;
 };
@@ -93,7 +101,7 @@ const handleKeydown = (event, locale) => {
             <!-- Der Button zum Öffnen des Sprachmenüs -->
             <button
               ref="buttonRef"
-              @click="toggleDropdown"
+              @click="changeLocale2"
               class="locale-btn"
               aria-haspopup="true"
               :aria-expanded="isDropdownOpen.toString()"

@@ -12,9 +12,7 @@ const { t } = useI18n();
         <div class="d-flex align-items-center">
           <div class="text-content">
             <div class="text-section">
-              <h1 class="text-white pt-3">
-                {{ t('about.title') }}
-              </h1>
+              <h1 class="text-white pt-3" v-html="t('about.title')"/>
               <div class="image-section">
                 <img
                     src="../../assets/Gruppenfoto.jpg"
@@ -22,25 +20,19 @@ const { t } = useI18n();
                     class="responsive-image"
                 />
               </div>
-              <p class="text-white fs-5 pt-2">
-                {{ t('about.introduction') }}
-              </p>
+              <p class="text-white fs-5 pt-2" v-html="t('about.introduction')"/>
               <div class="text-white fs-5 pt-2">
                 <ul>
                   <li>
-                    {{ t('about.generalInformation') }}
+                    <span v-html="t('about.generalInformation')"/>
                   </li>
                   <li>
-                    {{ t('about.whatWeDo') }}
+                    <span v-html="t('about.whatWeDo')" />
                   </li>
                 </ul>
               </div>
-              <p class="text-white fs-5 pt-2">
-                {{ t('about.bigText') }}
-              </p>
-              <p class="text-white fs-5 pt-2">
-                {{ t('about.pros') }}
-              </p>
+              <p class="text-white fs-5 pt-2" v-html="t('about.bigText')"/>
+             <!-- <p class="text-white fs-5 pt-2" v-html="t('about.pros')"/> -->
             </div>
           </div>
         </div>
