@@ -1,9 +1,7 @@
 <script setup>
-import { Carousel, Slide, Navigation } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 import { ref } from 'vue';
 import ModelViewer from '../../composeables/ModelViewer.vue';
-import imgUrl1 from "../../assets/1-drucker_allein.png";
 import imgUrl2 from "../../assets/2-IMG_2575.jpg";
 import imgUrl3 from "../../assets/3-IMG_2576.jpg";
 import imgUrl4 from "../../assets/4-IMG_2572.jpg";
@@ -153,7 +151,7 @@ h5{
 .content-card {
   position: relative;
   top: 100px;
-  background: #546474; /* Halbtransparenter weißer Hintergrund */
+  background: #224f7d; /* Halbtransparenter weißer Hintergrund */
   box-shadow: 0px 1px 3px 3px #1a232d; /* Schatten */
   border-radius: 15px; /* Abgerundete Ecken */
   padding: 20px; /* Innenabstand */

@@ -129,10 +129,10 @@ const i18n = createI18n({
             home: {
                 title:'Baller Los Brettspiele',
                 subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick',
-                welcome: 'Willkommen zu unserer Seite! Hier präsentieren wir Ihnen unser Produkt. <br>' +
-                    'Jedes Bild zeigt einen teil im Prozess unserer Entwicklung eines Brettspiels',
+                welcome: 'Willkommen auf unserer Seite! Hier präsentieren wir Ihnen unser Brettspiel. <br>' +
+                    'Jedes Bild zeigt einen teil im Prozess unserer Entwicklung.',
                 link: 'Hier',
-                textAfterLink: 'finden sie weiter Informationen zu unserem Projekt und uns!',
+                textAfterLink: 'finden sie weitere Informationen zu unserem Projekt und uns!',
                 rulesTitle: 'Regel',
                 rulesText: '<h5>Spielanleitung für "Maximal sechs"</h5>' +
                     'Spieleranzahl: 2 bis 6 Spieler<br>' +
