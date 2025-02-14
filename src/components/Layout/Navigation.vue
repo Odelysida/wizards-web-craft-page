@@ -225,7 +225,7 @@ ul.justify-content-start {
   width: 100%;
   position: fixed;
   z-index: 1;
-  background-color:#3E5F8A;
+  background-color:#143b6d;
   box-shadow: 0px 3px 3px #324a68;
 }
 
