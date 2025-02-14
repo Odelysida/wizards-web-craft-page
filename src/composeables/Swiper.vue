@@ -4,8 +4,12 @@ import { EffectCube, Pagination } from 'swiper/modules';
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import "swiper/css";
+import imgUrl2 from "../assets/Schuelerfirma-Bilder-1.png";
+import imgUrl3 from "../assets/4-IMG_2572.jpg";
+import imgUrl4 from "../assets/3-IMG_2576.jpg";
+import imgUrl5 from "../assets/5-IMG_2571.jpg";
 
-const images = ['src/assets/Schuelerfirma-Bilder-1.png' , 'src/assets/4-IMG_2572.jpg' , 'src/assets/3-IMG_2576.jpg', 'src/assets/5-IMG_2571.jpg'];
+const images = [imgUrl2 , imgUrl3 , imgUrl4, imgUrl5];
 
 </script>
 

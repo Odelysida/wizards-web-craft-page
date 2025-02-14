@@ -12,8 +12,10 @@ const { t } = useI18n();
         <div class="d-flex align-items-center">
           <div class="text-content">
             <div class="text-section">
-              <h1 class="text-white pt-3" v-html="t('about.title')"/>
               <div class="image-section">
+                <div class="text-section">
+              <h1 class="text-white pt-3" v-html="t('about.title')"/>
+                </div>
                 <img
                     src="../../assets/Gruppenfoto.jpg"
                     alt="Gruppenfoto der Schüler"
@@ -51,15 +53,20 @@ h1{
 }
 
 .image-section {
-  text-align: center;
+  text-align: right;
+}
+
+.text-section {
+  text-align: left;
 }
 
 .responsive-image {
   width: 100%;
-  max-width: 900px;
+  max-width: 700px;
   height: auto;
   object-fit: cover;
   margin: 0 auto;
+  top:0;
 }
 
 /* Responsive Anpassung */

@@ -204,17 +204,17 @@ h5{
 /* Responsives Design */
 @media (max-width: 1034px) {
   .model-viewer-grid {
-    gap: 15px; /* Weniger Abstand zwischen Elementen */
+    gap: 10px; /* Weniger Abstand zwischen Elementen */
   }
 
   .model-viewer-container {
     flex-wrap: wrap;
-    height: 600px; /* Geringere Höhe für kleinere Bildschirme */
     max-width: 90%; /* Breite auf 90% des Bildschirms begrenzen */
   }
 
   .model-viewer-border {
     padding: 8px; /* Weniger Innenabstand */
+    height: 800px;
   }
 
   .content-card{
@@ -236,6 +236,7 @@ h5{
   .model-viewer-border {
     padding: 5px; /* Minimaler Innenabstand */
     border-radius: 5px; /* Kleinere Rundung */
+    height: 800px;
   }
 
   .rules-image{
