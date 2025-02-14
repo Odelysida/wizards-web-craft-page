@@ -15,10 +15,10 @@ const i18n = createI18n({
             about: {
                 title: 'About us',
                 introduction: 'Hi, we are the HA24B and this is our student company “Baller los”, ' +
-                    'which means to go full steam ahead - and that\'s what we do.',
+                    'which means to go full steam ahead and that\'s what we do.',
                 generalInformation: 'We are 24 students between the ages of 15 and 18.<br> ' +
                     'We founded this student company as part of the one-year vocational school for business at BBS I Lüneburg. ',
-                whatWeDo: 'We produce our own game and want to use this game to raise awareness of<br> ' +
+                whatWeDo: 'We produce our own game and want to use this game to raise awareness of ' +
                     'environmental protection, especially with regard to water. ',
                 bigText: 'It is therefore a matter of course that we produce our game as ' +
                     'environmentally friendly and high-quality as possible. <br> ' +
@@ -45,8 +45,8 @@ const i18n = createI18n({
                 agreeDSGVO:'I have read and agree to the <a href="https://www.bbs1-lueneburg.de/datenschutz.html">Privacy Policy</a>'
             },
             home: {
-                title:'Baller Los Brettspiele',
-                subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick',
+                title:'Baller Los',
+                subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerwert',
                 welcome: 'Welcome to our page! Here we present you  our product. <br>' +
                     'Each image showcases a part of the process behind the development of our board game.',
                 link: 'Here',
@@ -104,8 +104,8 @@ const i18n = createI18n({
         de: {
             about: {
                 title: 'Wir über uns',
-                introduction: 'Moin, wir sind die HA24B und das ist unsere Schülerfirma „Baller los", was so viel wie mit voller Kraft loslegen bedeutet – und das machen wir.',
-                generalInformation: 'Wir sind 24 Schülerinnen und Schüler im Alter von 15 bis 18 Jahren.<br>' +
+                introduction: 'Moin, wir sind die HA24B und das ist unsere Schülerfirma „Baller los", was so viel wie mit voller Kraft loslegen bedeutet und das machen wir.',
+                generalInformation: 'Wir sind 24 Schülerinnen und Schüler im Alter von 15 bis 18 Jahren. ' +
                     'Diese Schülerfirma haben wir im Rahmen der einjährigen Berufsfachschule Wirtschaft an der BBS I Lüneburg gegründet.',
                 whatWeDo: 'Wir stellen ein eigenes Spiel her und wollen mit diesem Spiel auf den Umweltschutz, besonders bei den Gewässern, aufmerksam machen.',
                 bigText: 'Daher ist es selbstverständlich, dass wir unser Spiel so umweltfreundlich und hochwertig wie möglich produzieren. <br>' +
@@ -127,8 +127,8 @@ const i18n = createI18n({
                 agreeDSGVO:'Ich habe die <a href="https://www.bbs1-lueneburg.de/datenschutz.html">Datenschutzerkärung</a> gelesen und bin einverstanden'
             },
             home: {
-                title:'Baller Los Brettspiele',
-                subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerblick',
+                title:'Baller Los',
+                subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerwert',
                 welcome: 'Willkommen auf unserer Seite! Hier präsentieren wir Ihnen unser Brettspiel. <br>' +
                     'Jedes Bild zeigt einen teil im Prozess unserer Entwicklung.',
                 link: 'Hier',

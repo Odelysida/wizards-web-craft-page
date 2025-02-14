@@ -226,7 +226,7 @@ ul.justify-content-start {
   position: fixed;
   z-index: 1;
   background-color:#143b6d;
-  box-shadow: 0px 3px 3px #1f4a87;
+  box-shadow: 0px 3px 5px 0px #193e73
 }
 
 .dropdown-list {
