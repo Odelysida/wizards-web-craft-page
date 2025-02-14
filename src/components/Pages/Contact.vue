@@ -181,11 +181,11 @@ h2{
 
 .card-body{
   top: 5px;
-  background: #546474;
+  background: #224f7d;
 }
 
 .card-header{
-  background: #546474;
+  background: #224f7d;
 }
 
 .input-group-text{
