@@ -54,9 +54,11 @@ const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
     <!-- Spielbrett mit Regeln -->
     <div class="content-card">
       <div class="row p-0 m-0">
-        <!-- Carousel -->
-        <div class="col-md-6 p-0 m-0 mt-4">
-          <img class="rules-image" src="../../assets/Spielbrett_und_Figuren.jpeg" alt="Spielbrett_und_Figuren"/>
+        <div class="col-md-6 p-0 m-0">
+          <div class="image-container">
+            <img class="rules-image" src="../../assets/Spielbrett_und_Figuren.jpeg" alt="Spielbrett_und_Figuren"/>
+          </div>
+
         </div>
 
         <!-- Textbereich -->
@@ -95,12 +97,11 @@ const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
 
 <style scoped>
 
-.collage{
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: contain;
-  border-radius: 10px;
 }
 
 h4{
@@ -140,11 +141,12 @@ h5{
 }
 
 .rules-image {
+  left: 100px;
   width: 100%;
+  max-width: 400px;
   height: auto;
   max-height: 500px;
-  object-fit: contain;
-  border-radius: 10px;
+  object-fit: cover;
 }
 
 /* Hintergrund-Card */

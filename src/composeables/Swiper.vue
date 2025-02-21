@@ -1,6 +1,7 @@
 <script setup>
 import { Swiper, SwiperSlide} from 'swiper/vue';
 import { EffectCube, Pagination } from 'swiper/modules';
+import {ref, onMounted, onUnmounted, nextTick} from 'vue';
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import "swiper/css";
@@ -11,6 +12,40 @@ import imgUrl5 from "../assets/5-IMG_2571.jpg";
 
 const images = [imgUrl2 , imgUrl3 , imgUrl4, imgUrl5];
 
+// Swiper-Referenz
+const swiperRef = ref(null);
+let interval = null;
+
+// Funktion zum Starten der Rotation
+const startAutoRotate = () => {
+  console.log("startAutoRotate");
+  if (swiperRef.value) {
+    interval = setInterval(() => {
+      swiperRef.value.slideNext(); // Nächste Slide aufrufen
+    }, 2500);
+  }
+};
+
+// Funktion zum Stoppen der Rotation
+const stopAutoRotate = () => {
+  console.log("stopAutoRotate");
+  if (interval) {
+    clearInterval(interval);
+  }
+};
+
+// Funktion, die aufgerufen wird, wenn Swiper initialisiert wurde
+const onSwiperInit = (swiper) => {
+  console.log("onSwiperInit");
+  swiperRef.value = swiper;
+  startAutoRotate();
+};
+
+// Event-Listener für das Entfernen der Komponente
+onUnmounted(() => {
+  console.log("onUnmounted");
+  stopAutoRotate();
+});
 </script>
 
 <template>
@@ -21,7 +56,13 @@ const images = [imgUrl2 , imgUrl3 , imgUrl4, imgUrl5];
       shadowOffset: 20,
       shadowScale: 0.94
     }"
-    :pagination="true">
+    :speed="3500"
+    :pagination="true"
+    @swiper="onSwiperInit"
+    @mouseenter="stopAutoRotate"
+    @mouseleave="startAutoRotate"
+    @click="stopAutoRotate"
+    @pauseOnMouseEnter="stopAutoRotate">
       <SwiperSlide v-for="image in images">
         <img :src="`${image}`" class="card-img" alt="Figuren"/>
       </SwiperSlide>

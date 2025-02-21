@@ -57,7 +57,7 @@ h1 {
 
 .responsive-image {
   width: 100%;
-  max-width: 700px;
+  max-width: 450px;
   max-height: 300px;
   height: auto;
   object-fit: cover;

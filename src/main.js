@@ -46,7 +46,7 @@ const i18n = createI18n({
             },
             home: {
                 title:'Baller Los',
-                subtitle: 'Ein Schülerunternehmen der BBS1 Lüneburg mit Meerwert',
+                subtitle: 'A BBS1 Lüneburg student company with sea value',
                 welcome: 'Welcome to our page! Here we present you  our product. <br>' +
                     'Each image showcases a part of the process behind the development of our board game.',
                 link: 'Here',
@@ -69,23 +69,23 @@ const i18n = createI18n({
                     '<li>Dice</li>' +
                     '</ul>' +
                     '<h5>Game setup</h5>' +
-                    '   1. Players choose a playing piece and place it on the start space of the board.<br>' +
-                    '   2. The question and event cards are shuffled and set aside.<br>',
+                    '1. Players choose a playing piece and place it on the start space of the board.<br>' +
+                    '2. The question and event cards are shuffled and set aside.<br>',
                 sequenceTitle:'Game sequence',
                 sequenceText:
-                    ' 1. Players take turns rolling the dice and moving their playing piece according to the number rolled.<br>' +
-                    ' 2. If a player lands on a question space, they draw a question card and must answer the question.<br>' +
+                    '1. Players take turns rolling the dice and moving their playing piece according to the number rolled.<br>' +
+                    '2. If a player lands on a question space, they draw a question card and must answer the question.<br>' +
                     '<ul>' +
                     '<li> If answered correctly, the player may move forward a few spaces.</li>' +
-                    '<li> If answered incorrectly, the player may have to move back.</li>' +
-                    '</ul>'+
-                    ' 3. If a player lands on an event space, they draw an event card and must complete the task.<br>' +
+                    '<li> If answered incorrectly, the player may have to move back.</li> </ul>' +
+                   // '</ul>'+
+                    '3. If a player lands on an event space, they draw an event card and must complete the task.<br>' +
                     '<ul>' +
                     '<li>If the task is successfully completed, the player may move forward a few spaces.</li>' +
                     '<li>If the task is not completed, the player must move back.</li>' +
                     '</ul>'+
-                    ' 4. The game continues until a player reaches the final space on the board.<br>' +
-                    '<h5>Objective of the game</h5>' +
+                    ' 4. The game continues until a player reaches the final space on the board.<br> ' +
+                    '<br> <h5>Objective of the game</h5>' +
                     'The player who reaches the final space first wins the game and outsmarts the other players.<br>',
                 footerText:'<h6>Have fun playing!</h6>',
             },
@@ -151,22 +151,22 @@ const i18n = createI18n({
                     '<li>Würfel</li>' +
                     '</ul>' +
                     '<h5>Spielvorbereitung:</h5>' +
-                    '   1. Die Spieler wählen eine Spielfigur und stellen sie auf das Startfeld der Plattform.<br>' +
-                    '   2. Die Karten für Fragen und Ereignisse werden gemischt und bereitgelegt.',
+                    '1. Die Spieler wählen eine Spielfigur und stellen sie auf das Startfeld der Plattform.<br>' +
+                    '<br>2. Die Karten für Fragen und Ereignisse werden gemischt und bereitgelegt.',
                 sequenceTitle:'Spielablauf',
                 sequenceText:
-                    '   1. Die Spieler würfeln reihum und ziehen ihre Spielfigur entsprechend der Augenzahl des Würfels.<br>' +
-                    '   2. Landet ein Spieler auf einem Fragefeld, zieht er eine Fragekarte und muss die Frage beantworten.<br>' +
+                    '1. Die Spieler würfeln reihum und ziehen ihre Spielfigur entsprechend der Augenzahl des Würfels.<br>' +
+                    '<br>2. Landet ein Spieler auf einem Fragefeld, zieht er eine Fragekarte und muss die Frage beantworten.<br>' +
                     '<ul>' +
-                    '<li> Bei richtiger Antwort darf der Spieler ggf. ein paar Felder vor ziehen.</li>' +
-                    '<li> Bei falscher Antwort muss der Spieler ggf. zurück ziehen.</li>' +
+                    '<li>Bei richtiger Antwort darf der Spieler ggf. ein paar Felder vor ziehen.</li>' +
+                    '<li>Bei falscher Antwort muss der Spieler ggf. zurück ziehen.</li>' +
                     '</ul>' +
-                    '   3. Landet ein Spieler auf einem Ereignisfeld, zieht er eine Ereigniskarte und muss die Aufgabe erfüllen.<br>' +
+                    '3. Landet ein Spieler auf einem Ereignisfeld, zieht er eine Ereigniskarte und muss die Aufgabe erfüllen.' +
                     '<ul>' +
-                    '<li> Wird die Aufgabe erfolgreich erledigt, darf der Spieler ggf. ein paar Felder weiterziehen.</li>' +
-                    '<li> Bei Nichterfüllung muss der Spieler ebenfalls zurück ziehen.</li></ul>' +
-                    '   4. Das Spiel wird fortgesetzt, bis ein Spieler das letzte Feld des Spielbretts erreicht.<br>' +
-                    '<h5>Ziel des Spieles</h5>' +
+                    '<li>Wird die Aufgabe erfolgreich erledigt, darf der Spieler ggf. ein paar Felder weiterziehen.</li>' +
+                    '<li>Bei Nichterfüllung muss der Spieler ebenfalls zurück ziehen.</li></ul>' +
+                    '4. Das Spiel wird fortgesetzt, bis ein Spieler das letzte Feld des Spielbretts erreicht.<br>' +
+                    '<br><h5>Ziel des Spieles</h5>' +
                     'Der Spieler, der als erster das letzte Feld erreicht, gewinnt das Spiel und hat somit die anderen Spieler überlistet.<br>',
                 footerText:'<h6>Viel Spaß beim Spielen!</h6>'
             },
