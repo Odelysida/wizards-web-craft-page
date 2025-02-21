@@ -163,6 +163,11 @@ const sendEmail = () => {
 
 <style scoped>
 
+#message-addon{
+  display: flex;
+  align-items: flex-start;
+}
+
 h2{
   text-shadow: 2px 3px 5px black;
 }
