@@ -45,7 +45,7 @@ const i18n = createI18n({
                 agreeDSGVO:'I have read and agree to the <a href="https://www.bbs1-lueneburg.de/datenschutz.html">Privacy Policy</a>'
             },
             home: {
-                title:'DEPLOYMENT TEST',
+                title:'Baller los',
                 subtitle: 'A BBS1 Lüneburg student company with sea value',
                 welcome: 'Welcome to our page! Here we present you  our product. <br>' +
                     'Each image showcases a part of the process behind the development of our board game.',
