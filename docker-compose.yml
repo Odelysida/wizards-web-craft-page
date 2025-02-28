@@ -9,7 +9,7 @@ services:
     command: bash -c "npm install --include=dev && npm run build"
   web:
     image: "nginx"
-    network:
+    ports:
       - "80:80"
       - "443:443"
     volumes: 
