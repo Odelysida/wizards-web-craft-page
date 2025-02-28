@@ -9,5 +9,8 @@ services:
     command: bash -c "npm install --include=dev && npm run build"
   web:
     image: "nginx"
+    network:
+      - "80:80"
+      - "443:443"
     volumes: 
       - ./dist:/usr/share/nginx/html
