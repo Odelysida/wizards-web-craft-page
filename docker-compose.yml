@@ -6,6 +6,8 @@ services:
       - NODE_ENV=production
     volumes: 
       - ./:/home/node/app
-    ports:
-      - "4173:4173"
-    command: bash -c "npm install --include=dev && npm run preview"
+    command: bash -c "npm install --include=dev && npm run build"
+  web:
+    image: "nginx"
+    volumes: 
+      - ./dist:/usr/share/nginx/html
