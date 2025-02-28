@@ -8,9 +8,9 @@ services:
       - ./:/home/node/app
     command: bash -c "npm install --include=dev && npm run build"
   web:
-    image: "nginx"
+    build: .
     ports:
-      - "80:80"
       - "443:443"
     volumes: 
       - ./dist:/usr/share/nginx/html
+      - ./nginx:/etc/nginx/conf.d
