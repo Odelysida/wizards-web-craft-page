@@ -17,26 +17,23 @@ const { t } = useI18n();
           </p>
         </div>
         <div class="representative">
-          <p>
-            {{ t('footer.representativeTitle') }}<br />
-            {{ t('footer.representative') }}
+          <p v-html="t('footer.representativeTitle') + t('footer.representative')">
           </p>
         </div>
       </div>
 
       <div class="footer-section">
-        <h1 class="footer-title">{{ t('footer.title') }}</h1>
+        <h1 class="footer-title" v-html="t('footer.title')"></h1>
         <div class="datenschutz-info">
-          <p>
-            {{ t('footer.info') }}
+          <p v-html="t('footer.info')">
           </p>
           <a
             href="https://www.bbs1-lueneburg.de/datenschutz.html"
             class="privacy-button"
             target="_blank"
             rel="noopener noreferrer"
+            v-html="t('footer.button')"
           >
-            {{ t('footer.button') }}
           </a>
         </div>
       </div>

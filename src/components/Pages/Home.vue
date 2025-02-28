@@ -33,7 +33,7 @@ const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6];
     <div class="content-card">
       <div class="row p-0 m-0">
         <div class="col-md-6 p-0 m-0 mt-4">
-       <Swiper></Swiper>
+            <Swiper class="swiper-container"></Swiper>
         </div>
 
         <!-- Textbereich -->
@@ -225,6 +225,13 @@ h5{
 }
 
 @media (max-width: 768px) {
+
+  .swiper-container{
+    width: 300px;
+    height: 300px;
+  }
+
+
   .model-viewer-grid {
     flex-direction: column; /* Vertikales Layout für schmale Bildschirme */
     gap: 10px;

@@ -10,42 +10,50 @@ import imgUrl3 from "../assets/4-IMG_2572.jpg";
 import imgUrl4 from "../assets/3-IMG_2576.jpg";
 import imgUrl5 from "../assets/5-IMG_2571.jpg";
 
-const images = [imgUrl2 , imgUrl3 , imgUrl4, imgUrl5];
+const images = [imgUrl2, imgUrl3, imgUrl4, imgUrl5];
 
-// Swiper-Referenz
 const swiperRef = ref(null);
 let interval = null;
 
-// Funktion zum Starten der Rotation
 const startAutoRotate = () => {
-  console.log("startAutoRotate");
-  if (swiperRef.value) {
+  if (!interval && swiperRef.value) {
+    console.log("Auto-Rotation gestartet");
     interval = setInterval(() => {
-      swiperRef.value.slideNext(); // Nächste Slide aufrufen
+      swiperRef.value.slideNext();
     }, 2500);
   }
 };
 
-// Funktion zum Stoppen der Rotation
 const stopAutoRotate = () => {
-  console.log("stopAutoRotate");
   if (interval) {
+    console.log("Auto-Rotation gestoppt");
     clearInterval(interval);
+    interval = null;
   }
 };
 
-// Funktion, die aufgerufen wird, wenn Swiper initialisiert wurde
-const onSwiperInit = (swiper) => {
-  console.log("onSwiperInit");
-  swiperRef.value = swiper;
-  startAutoRotate();
+const checkWindowSize = () => {
+  if (window.innerWidth >= 800) {
+    startAutoRotate();
+  } else {
+    stopAutoRotate();
+  }
 };
 
-// Event-Listener für das Entfernen der Komponente
-onUnmounted(() => {
-  console.log("onUnmounted");
-  stopAutoRotate();
+onMounted(() => {
+  checkWindowSize();
+  window.addEventListener("resize", checkWindowSize);
 });
+
+onUnmounted(() => {
+  stopAutoRotate();
+  window.removeEventListener("resize", checkWindowSize);
+});
+
+const onSwiperInit = (swiper) => {
+  swiperRef.value = swiper;
+  checkWindowSize();
+};
 </script>
 
 <template>
