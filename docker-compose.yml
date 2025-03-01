@@ -10,7 +10,10 @@ services:
   web:
     build: .
     ports:
-      - "443:443"
+      - "${NGINX_PORT}:${EXTERNAL_PORT}"
     volumes: 
       - ./dist:/usr/share/nginx/html
-      - ./nginx:/etc/nginx/conf.d
+      #- ./nginx:/etc/nginx/conf.d
+    environment:
+      - NGINX_HOST=$NGINX_HOST
+      - NGINX_PORT=$NGINX_PORT

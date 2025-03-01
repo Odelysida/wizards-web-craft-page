@@ -1,7 +1,7 @@
 server {
-    listen       443;
-    listen  [::]:443;
-    server_name  testing.harne.it;
+    listen       ${NGINX_PORT} ssl;
+    listen  [::]:${NGINX_PORT} ssl;
+    server_name  ${NGINX_HOST};
     ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
     ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
 
@@ -45,3 +45,4 @@ server {
     #    deny  all;
     #}
 }
+
