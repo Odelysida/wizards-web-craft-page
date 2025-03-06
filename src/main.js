@@ -90,7 +90,7 @@ const i18n = createI18n({
                 footerText:'<br><h6>Have fun playing!</h6>',
             },
             footer: {
-                representativeTitle: 'Representation',
+                representativeTitle: 'Representation<br>',
                 representative: 'Principal Heiko Lüdemann',
                 title: 'Data Protection',
                 info: 'Data Protection: If this website provides the opportunity to enter personal or business data (email addresses, names, addresses), the disclosure of this data by the user is explicitly voluntary.<br>',
@@ -171,7 +171,7 @@ const i18n = createI18n({
                 footerText:'<br><h6>Viel Spaß beim Spielen!</h6>'
             },
             footer: {
-                representativeTitle:'Vertretung',
+                representativeTitle:'Vertretung<br>',
                 representative:'Oberstudiendirektor Heiko Lüdemann',
                 title:'Datenschutz',
                 info:'Datenschutz: Sofern innerhalb dieser Homepage die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (E-Mail-Adressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers ausdrücklich auf freiwilliger Basis.\n',

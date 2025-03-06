@@ -16,9 +16,9 @@ const {t} = useI18n();
             <div class="image-section">
               <div class="text-section">
                 <h1 class="text-white pt-3" v-html="t('about.title')"/>
-                <p class="text-white fs-5 pt-2" v-html="t('about.introduction')"/>
-                <p class="text-white fs-5 pt-2" v-html="t('about.generalInformation')"/>
-                <p class="text-white fs-5 pt-2" v-html="t('about.whatWeDo')"/>
+                <p class="text-white pt-2" v-html="t('about.introduction')"/>
+                <p class="text-white pt-2" v-html="t('about.generalInformation')"/>
+                <p class="text-white pt-2" v-html="t('about.whatWeDo')"/>
               </div>
               <img
                   src="../../assets/Gruppenfoto.jpg"
@@ -27,7 +27,7 @@ const {t} = useI18n();
               />
             </div>
 
-            <p class="text-white fs-5 pt-2" v-html="t('about.bigText')"/>
+            <p class="text-white pt-2" v-html="t('about.bigText')"/>
             <!-- <p class="text-white fs-5 pt-2" v-html="t('about.pros')"/> -->
           </div>
         </div>
