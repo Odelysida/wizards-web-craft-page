@@ -170,7 +170,7 @@ h5{
 }
 
 .text-content {
-  padding: 10px;
+  padding-top: 10px;
   color: #fff;
   font-size: 1rem;
   line-height: 1.5;
@@ -250,7 +250,7 @@ h5{
 
   .rules-image{
     height: 350px;
-    width: 350px;
+    width: 300px;
   }
 
   .collage{

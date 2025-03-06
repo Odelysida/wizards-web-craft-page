@@ -17,10 +17,16 @@ h5{
   text-shadow: 1px 1px 5px black;
 }
 
-p, ul{
+ul{
   font-family: Arial, system-ui;
-
+  margin: 0;
+  padding-left: 30px;
 }
+
+p{
+  font-family: Arial, system-ui;
+}
+
 
 svg{
   stroke: #ffffff;

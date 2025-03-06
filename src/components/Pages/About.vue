@@ -89,7 +89,7 @@ h1 {
 }
 
 .text-content {
-  padding: 10px;
+  padding-top: 10px;
   color: #fff;
   font-size: 1rem;
   line-height: 1.5;
